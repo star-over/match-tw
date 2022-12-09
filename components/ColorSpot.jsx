@@ -1,9 +1,10 @@
 
-export const ColorSpot = () => {
-
+export const ColorSpot = (props) => {
+  const { colorName, colorHex } = props;
+  const divStyle = {
+    backgroundColor: colorHex,
+  };
   return (
-    <>
-      <div className="text-green-500 text-xl font-bold">color spot test</div>
-    </>
+    <div className="w-full text-md text-slate-300 text-center flex-grow" style={ divStyle }>{ colorName }</div>
   )
 }
