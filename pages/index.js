@@ -34,7 +34,7 @@ export default function Home() {
   }, [distances])
   return (
     <>
-      <h1 className="text-transparent text-8xl p-8 text-center font-black font-sans bg-clip-text bg-gradient-to-r from-sky-600 to-rose-600">Tailwindcss is runing</h1>
+      <h1 className="text-transparent text-8xl p-8 text-center font-black font-sans bg-clip-text bg-gradient-to-r from-sky-600 to-rose-600">Tailwindcss is runing!</h1>
       <ColorTextInput className="mb-6" targetColor={ targetColor } setTargetColor={ setTargetColor } />
       <div className="container m-auto border border-red-300 border-solid">
         <div className="w-auto flex h-56">
