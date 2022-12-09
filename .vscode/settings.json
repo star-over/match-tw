@@ -4,6 +4,6 @@
     "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
     "*.jsx": "$(capture).js",
     "*.tsx": "$(capture).ts",
-    "package.json": ".*, package-lock.json, package.json, README.md, LICENSE, next.config.js"
+    "package.json": ".*, *.config.js, package-lock.json, package.json, README.md, LICENSE"
   },
 }
