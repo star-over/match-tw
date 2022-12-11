@@ -1,45 +1,52 @@
-import Color from "colorjs.io";
 import { useEffect, useState } from "react";
 import { ColorSpot } from "../components/ColorSpot";
 import { ColorSpotList } from "../components/ColorSpotList";
 import { ColorTextInput } from "../components/ColorTextInput";
 import { colorThemeDefault } from "../data/colorThemeDefault";
+import { parseTextColor, toHex } from "../utils/utils";
+
+const INITIAL_COLOR = "#123456";
 
 export default function Home() {
-
-  const [targetColor, setTargetColor] = useState(Color.get("#111111"));
-  const [colors, setColors] = useState([]);
-  const [distances, setDistances] = useState([]);
+  const [targetColor, setTargetColor] = useState(parseTextColor(INITIAL_COLOR));
+  const [themeColors, setThemeColors] = useState([]);
+  const [matchColors, setMatchColors] = useState([]);
 
   useEffect(() => {
-    setColors(colorThemeDefault);
+    setThemeColors(colorThemeDefault);
   }, []);
 
-
   useEffect(() => {
-    const distancesToTarget = colors
-      .map((item) => {
-        const dE2000 = targetColor.deltaE(item.color, "2000");
-
-        return { ...item, dE2000 };
-      })
+    const distancesToTarget = themeColors
+      .map((item) => ({ ...item, dE2000: targetColor.deltaE(item.color, "2000") }))
       .sort(({ dE2000: a }, { dE2000: b }) => a - b)
-      .slice(0, 6);
-    setDistances(distancesToTarget);
+      .slice(0, 9);
 
-  }, [targetColor]);
+    setMatchColors(distancesToTarget);
+  }, [targetColor, themeColors]);
 
-  useEffect(() => {
-      console.log(distances);
-  }, [distances])
   return (
     <>
-      <h1 className="text-transparent text-8xl p-8 text-center font-black font-sans bg-clip-text bg-gradient-to-r from-sky-600 to-rose-600">Tailwindcss is runing!</h1>
-      <ColorTextInput className="mb-6" targetColor={ targetColor } setTargetColor={ setTargetColor } />
-      <div className="container m-auto border border-red-300 border-solid">
+      <h1
+        className="text-transparent text-8xl p-8 text-center font-black font-sans
+        bg-clip-text bg-gradient-to-r from-sky-600 to-rose-600"
+      >
+        Tailwindcss is runing!
+      </h1>
+      <ColorTextInput
+        className="mb-6"
+        targetColor={ targetColor }
+        setTargetColor={ setTargetColor }
+      />
+      <div className="container m-auto">
         <div className="w-auto flex h-56">
-          <ColorSpot colorName={targetColor.toString({format: "hex"})} colorHex={targetColor.toString({format: "hex"})} />
-          <ColorSpotList colors={ distances } />
+          <ColorSpot
+            colorName={ toHex(targetColor) }
+            colorHex={ toHex(targetColor) }
+          />
+          <ColorSpotList
+            colors={ matchColors }
+          />
         </div>
       </div>
     </>
