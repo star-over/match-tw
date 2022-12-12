@@ -9,10 +9,10 @@ export const ColorSpot = (props) => {
 
   return (
     <div
-      className="w-full text-md text-center flex-grow"
+      className="text-md text-center rounded-xl h-20 flex justify-center items-center"
       style={ divStyle }
     >
-      { colorName }
+      <div>{ colorName }</div>
     </div>
   )
 };

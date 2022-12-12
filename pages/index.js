@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <h1
-        className="text-transparent text-8xl p-8 text-center font-black font-sans
+        className="text-transparent text-2xl sm:text-5xl lg:text-6xl p-8 text-center font-black font-sans
         bg-clip-text bg-gradient-to-r from-sky-600 to-rose-600"
       >
         Tailwindcss is runing!
@@ -38,14 +38,11 @@ export default function Home() {
         targetColor={ targetColor }
         setTargetColor={ setTargetColor }
       />
-      <div className="container m-auto">
-        <div className="w-auto flex h-56">
-          <ColorSpot
-            colorName={ toHex(targetColor) }
-            colorHex={ toHex(targetColor) }
-          />
+      <div className="container sm:m-auto">
+        <div className="">
           <ColorSpotList
             colors={ matchColors }
+            targetColorHex={ toHex(targetColor) }
           />
         </div>
       </div>
