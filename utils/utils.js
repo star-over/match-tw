@@ -19,3 +19,8 @@ export const getContrastColorHex = (targerColor) => {
     .at(0) // [1.176298336596253, "#0f172a"]
     .at(1); // "#0f172a"
 };
+
+export const contrastStyle = (colorHex) => ({
+  backgroundColor: colorHex,
+  color: getContrastColorHex(colorHex),
+})

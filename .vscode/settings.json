@@ -15,4 +15,5 @@
     "Коммиты",
     "форк"
   ],
+  "javascript.preferences.importModuleSpecifierEnding": "minimal",
 }

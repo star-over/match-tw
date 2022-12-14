@@ -1,12 +1,9 @@
-import { getContrastColorHex } from "../utils/utils";
+import { contrastStyle } from "../utils/utils";
 import { ColorSpot } from "./ColorSpot";
 
 export const ColorSpotList = (props) => {
   const { colors, targetColorHex } = props;
-  const divStyle = {
-    backgroundColor: targetColorHex,
-    color: getContrastColorHex(targetColorHex),
-  };
+
 
   const colorSpots = colors
     .map(({ colorHex, colorName }) => (
@@ -18,8 +15,13 @@ export const ColorSpotList = (props) => {
 
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-3 gap-12 p-12 rounded-xl shadow-lg sm:m-2 md:m-4 lg:m-8 xl: 2xl:m-12"
-      style={ divStyle }
+      className="grid grid-cols-1 gap-12 p-12 rounded mt-6
+      sm:mx-2 sm:grid-cols-2 sm:rounded-lg sm:gap-x-6
+      md:mx-4 md:gap-x-12
+      lg:mx-8 lg:grid-cols-3 lg:rounded-xl
+      xl:mx-10 xl:rounded-xl
+      2xl:mx-12 2xl:rounded-3xl"
+      style={ contrastStyle(targetColorHex) }
     >
       { colorSpots }
     </div>
