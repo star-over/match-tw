@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ColorSpot } from "../components/ColorSpot";
 import { ColorSpotList } from "../components/ColorSpotList";
 import { ColorTextInput } from "../components/ColorTextInput";
 import { colorThemeDefault } from "../data/colorThemeDefault";
