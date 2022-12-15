@@ -5,6 +5,13 @@ import { ColorTextInput } from "../components/ColorTextInput";
 import { Title } from "../components/Title";
 import { colorThemeDefault } from "../data/colorThemeDefault";
 import { parseTextColor, toHex } from "../utils/utils";
+import {
+  useQuery,
+  // useMutation,
+  useQueryClient,
+  // QueryClient,
+  // QueryClientProvider,
+} from '@tanstack/react-query'
 
 const INITIAL_COLOR = "#123456";
 
@@ -13,6 +20,10 @@ export default function Home() {
   const [themeColors, setThemeColors] = useState([]);
   const [matchColors, setMatchColors] = useState([]);
   const [matchCount, setMatchCount] = useState(1);
+  const queryClient = useQueryClient();
+  const query = useQuery({ queryKey: ['1111'], queryFn:  () => [1,2,3,4]  })
+
+
 
   useEffect(() => {
     setThemeColors(colorThemeDefault);
@@ -32,6 +43,7 @@ export default function Home() {
     <>
       <div className="container sm:m-auto pb-32  border border-solid border-red-300">
         <Title />
+        <pre>{query.data}</pre>
         <ColorTextInput
           targetColor={ targetColor }
           setTargetColor={ setTargetColor }

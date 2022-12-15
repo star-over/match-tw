@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.20.4",
+    "@tanstack/react-query-devtools": "^4.20.4",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "colorjs.io": "^0.4.2",
