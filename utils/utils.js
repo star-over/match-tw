@@ -24,3 +24,9 @@ export const contrastStyle = (colorHex) => ({
   backgroundColor: colorHex,
   color: getContrastColorHex(colorHex),
 })
+
+const DELTA_E_ALGORITHM = "2000";
+export const sortByDeltaE = ({ themeColors, targetColor, matchCount = 9 }) => themeColors
+  .map((currColor) => ({ ...currColor, dE: targetColor.deltaE(currColor.color, DELTA_E_ALGORITHM) }))
+  .sort(({ dE: a }, { dE: b }) => a - b)
+  .slice(0, matchCount);

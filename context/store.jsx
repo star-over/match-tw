@@ -1,16 +1,48 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { useContext, createContext, useState, useRef, useEffect } from "react";
+import { parseTextColor, sortByDeltaE, toHex } from "../utils/utils";
+import { theme } from "../data/colorThemeDefault";
 
-const state = { hello: "hello" }
-const queryClient = new QueryClient(state)
+const INITIAL_COLOR_HEX = "#123456";
 
+const initialState = {
+  targetColor: parseTextColor(INITIAL_COLOR_HEX),
+  targetColorHex: INITIAL_COLOR_HEX,
+  matchColors: [],
+  themeColors: theme,
+  matchCount: 9,
+};
 
-export const Store = ({ children }) => {
+const makeState = initObj => {
+  const makeAccessors = ([get, set]) => ({ get, set });
+  return Object.fromEntries(
+    Object.entries(initObj)
+      .map(([key, value]) => [key, makeAccessors(useState(value))]),
+  );
+};
+
+const AppStoreContext = createContext();
+
+export const AppStore = ({ children }) => {
+
+  const state = useRef();
+  state.current = { ...makeState(initialState) };
+
+  useEffect(() => {
+    state.current.matchColors.set(
+      sortByDeltaE({
+        themeColors: state.current.themeColors.get,
+        targetColor: state.current.targetColor.get,
+        matchCount: state.current.matchCount.get,
+      }));
+
+    state.current.targetColorHex.set(toHex(state.current.targetColor.get));
+  }, [state.current.targetColor.get]);
 
   return (
-    <QueryClientProvider client={ queryClient }>
+    <AppStoreContext.Provider value={ state.current } >
       { children }
-      <ReactQueryDevtools initialIsOpen={ false } />
-    </QueryClientProvider>
+    </AppStoreContext.Provider >
   );
 }
+
+export const useAppStore = () => useContext(AppStoreContext);
