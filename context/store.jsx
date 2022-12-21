@@ -10,6 +10,7 @@ const initialState = {
   matchColors: [],
   themeColors: theme,
   matchCount: 9,
+  inputText: INITIAL_COLOR_HEX,
 };
 
 const makeState = initObj => {
@@ -37,6 +38,14 @@ export const AppStore = ({ children }) => {
 
     state.current.targetColorHex.set(toHex(state.current.targetColor.get));
   }, [state.current.targetColor.get]);
+
+  useEffect(() => {
+    const color = parseTextColor(state.current.inputText.get);
+    if (color) {
+      color.alpha = 1; // set no alpha
+      state.current.targetColor.set(color);
+    }
+  }, [state.current.inputText.get]);
 
   return (
     <AppStoreContext.Provider value={ state.current } >
