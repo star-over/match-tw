@@ -1,4 +1,4 @@
-export const colorThemeDefault = [
+export const theme = [
   { "colorName": "black", "colorHex": "#000", "color": { "spaceId": "srgb", "coords": [0, 0, 0], "alpha": 1 } },
   { "colorName": "white", "colorHex": "#fff", "color": { "spaceId": "srgb", "coords": [1, 1, 1], "alpha": 1 } },
   { "colorName": "slate-50", "colorHex": "#f8fafc", "color": { "spaceId": "srgb", "coords": [0.9725490196078431, 0.9803921568627451, 0.9882352941176471], "alpha": 1 } },
