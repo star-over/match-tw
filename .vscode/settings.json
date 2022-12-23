@@ -17,4 +17,7 @@
     "форк"
   ],
   "javascript.preferences.importModuleSpecifierEnding": "minimal",
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }
