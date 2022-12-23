@@ -13,6 +13,16 @@ module.exports = {
   overrides: [],
   plugins: ["react", "prettier"],
   rules: {
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "required": {
+        "some": ["nesting", "id"],
+      },
+    }],
+    "jsx-a11y/label-has-for": ["error", {
+      "required": {
+        "some": ["nesting", "id"],
+      },
+    }],
     "prettier/prettier": 0,
     "import/prefer-default-export": 0,
     "import/order": 0,
