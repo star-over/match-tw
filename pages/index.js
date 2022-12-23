@@ -15,7 +15,6 @@ export default function Home() {
         <ColorTextInput />
         <RadioBottons
           variants={ ["12", "9", "6", "3"] } />
-
         <ColorSpotList />
       </div>
       <Breakpoints />
