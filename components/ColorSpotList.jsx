@@ -4,8 +4,6 @@ import { ColorSpot } from "./ColorSpot";
 
 export const ColorSpotList = () => {
   const { matchColors, targetColor, targetColorHex } = useAppStore();
-  console.log("🚀 > ColorSpotList > matchColors", matchColors);
-
 
   const colorSpots = matchColors.get
     .map(({ colorHex, colorName, dE }) => (

@@ -12,6 +12,8 @@
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "colorjs.io": "^0.4.2",
+    "mobx": "^6.7.0",
+    "mobx-react-lite": "^3.4.0",
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"

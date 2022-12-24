@@ -13,6 +13,7 @@ module.exports = {
   overrides: [],
   plugins: ["react", "prettier"],
   rules: {
+    "lines-between-class-members": 0,
     "jsx-a11y/label-has-associated-control": ["error", {
       "required": {
         "some": ["nesting", "id"],
