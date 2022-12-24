@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { cva } from "class-variance-authority";
 
-const button = cva(["px-4 py-1 text-sm font-medium leading-none border border-gray-300",
+const button = cva(["px-2 py-1 text-sm font-medium leading-none border border-gray-300",
   "rounded-sm first:rounded-l-md last:rounded-r-md ",
   "bg-gray-200 text-gray-500 active:bg-gray-200 hover:bg-gray-100 hover:shadow active:shadow",
   "transition"],

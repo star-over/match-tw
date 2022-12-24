@@ -10,12 +10,14 @@ export default function Home() {
     <>
       <div className="container sm:m-auto pb-32  border border-solid border-red-300">
         <Title />
-        <RadioBottons
-          variants={ ["2000", "76", "Jz", "CMC", "ITP", "OK"] } />
-        <ColorTextInput />
-        <RadioBottons
-          variants={ ["12", "9", "6", "3"] } />
-        <ColorSpotList />
+        <div className="flex justify-start mt-6">
+          <RadioBottons
+            variants={ ["2000", "76", "Jz", "CMC", "ITP", "OK"] } />
+          <ColorTextInput />
+          <RadioBottons
+            variants={ ["12", "9", "6", "3"] } />
+        </div>
+          <ColorSpotList />
       </div>
       <Breakpoints />
     </>
