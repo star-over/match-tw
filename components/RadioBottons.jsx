@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { cva } from "class-variance-authority";
 
 const button = cva(["px-2 py-1 text-sm font-medium leading-none border border-gray-300",
@@ -12,7 +11,7 @@ const button = cva(["px-2 py-1 text-sm font-medium leading-none border border-gr
     defaultVariants: { selected: false },
   });
 
-export const ToolBotton = ({ selected, value, setSelected }) => {
+const ToolBotton = ({ selected, value, setSelected }) => {
   const classname = button({ selected })
   return (
     <button
@@ -24,15 +23,13 @@ export const ToolBotton = ({ selected, value, setSelected }) => {
   )
 };
 
-export const RadioBottons = ({ variants }) => {
-  const [selected, setSelected] = useState(variants[0]);
-
+export const RadioBottons = ({ variants, currentValue, setValue }) => {
   const radioItems = variants.map((variant) => (
     <ToolBotton
       key={ variant }
       value={ variant }
-      selected={ variant === selected }
-      setSelected={ setSelected }
+      selected={ variant === currentValue }
+      setSelected={ setValue }
     > { variant } </ToolBotton>
   ));
 
