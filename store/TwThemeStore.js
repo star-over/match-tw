@@ -1,3 +1,4 @@
+// @ts-check
 import { makeAutoObservable } from "mobx";
 import { twColors } from "../data/colorThemeDefault";
 

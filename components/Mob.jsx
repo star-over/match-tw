@@ -1,15 +1,15 @@
 import { observer } from "mobx-react-lite"
-import { useMobxStore } from "../context/StoreContextProvider";
+import { useStore } from "../store/StoreContext";
 
 export const Mob = observer(() => {
-  const store = useMobxStore();
+  const store = useStore();
 
   return (<>
-    <div className='' >{ store.uiStore.selectedDeltaE }</div>
+    <div className='' >{ store.target.toHexValue }</div>
     <input
       type="text"
-      value={ store.uiStore.selectedDeltaE }
-      onChange={ (e) => { store.uiStore.setSelectedDeltaE(e.target.value) } }
+      value={ store.uiStore.testValue }
+      onChange={ (e) => { store.uiStore.testValue = e.target.value } }
     />
   </>)
 });

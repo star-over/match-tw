@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
-import { useMobxStore } from "../context/StoreContextProvider";
+import { useStore } from "../store/StoreContext";
 import { RadioBottons } from "./RadioBottons";
 
 export const ColorTextInput = observer(() => {
-  const { uiStore } = useMobxStore();
+  const { uiStore } = useStore();
 
   // variants, currentValue, setValue
   return (

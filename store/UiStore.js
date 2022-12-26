@@ -1,11 +1,20 @@
-import { makeAutoObservable } from "mobx";
+// @ts-check
+import { configure, makeAutoObservable } from "mobx";
 import { parseTextColor, toHex } from "../utils/utils";
 
 const algorithms = ["2000", "76", "Jz", "CMC", "ITP", "OK"];
 const spotCounts = ["12", "9", "6", "3"];
 
+configure({
+  enforceActions: "never",
+  computedRequiresReaction: true,
+  reactionRequiresObservable: true,
+  observableRequiresReaction: true,
+})
+
 export class UiStore {
   root;
+  testValue = "12345";
   selectedAlgorithm = algorithms[0];
   selectedSpotCount = spotCounts[0];
   targetText = "#123456";
@@ -33,6 +42,7 @@ export class UiStore {
       color.alpha = 1; // set no-alpha
       this.targetColor = color;
       this.isValid = true;
+      this.root.target.color = color;
     }
   }
   setTargetText = (value) => {

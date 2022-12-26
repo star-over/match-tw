@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { useMobxStore } from "../context/StoreContextProvider";
+import { useStore } from "../store/StoreContext";
 import { contrastStyle } from "../utils/utils";
 import { ColorSpot } from "./ColorSpot";
 
@@ -7,20 +7,20 @@ export const ColorSpotList = observer(() => {
   const {
       twThemeStore: { matchColors },
       uiStore: { targetColor, targetColorHex },
-    } = useMobxStore();
+    } = useStore();
 
   const colorSpots = matchColors
     .map(({ colorHex, colorName, dE }) => (
       <ColorSpot
-        dE={ dE }
         key={ colorHex }
+        dE={ dE }
         colorName={ colorName }
         colorHex={ colorHex }
       />))
 
   return (
     <div
-      className="grid grid-cols-1 gap-12 p-12 rounded mt-6
+      className="grid grid-cols-1 gap-12 p-12 rounded mt-6 transition-all delay-75 duration-700
       sm:mx-2 sm:grid-cols-2 sm:rounded-lg sm:gap-x-6
       md:mx-4 md:gap-x-12
       lg:mx-8 lg:grid-cols-3 lg:rounded-xl
