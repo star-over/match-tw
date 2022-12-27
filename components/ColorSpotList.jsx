@@ -4,12 +4,9 @@ import { contrastStyle } from "../utils/utils";
 import { ColorSpot } from "./ColorSpot";
 
 export const ColorSpotList = observer(() => {
-  const {
-      twThemeStore: { matchColors },
-      uiStore: { targetColor, targetColorHex },
-    } = useStore();
+  const { target } = useStore();
 
-  const colorSpots = matchColors
+  const colorSpots = target.matchColors
     .map(({ colorHex, colorName, dE }) => (
       <ColorSpot
         key={ colorHex }
@@ -26,12 +23,12 @@ export const ColorSpotList = observer(() => {
       lg:mx-8 lg:grid-cols-3 lg:rounded-xl
       xl:mx-10 xl:rounded-xl
       2xl:mx-12 2xl:rounded-3xl"
-      style={ contrastStyle(targetColorHex) }
+      style={ contrastStyle(target.toHexValue) }
     >
       <div className="col-span-full font-mono text-lg">
         <p className="text-center " >current color</p>
-        <p className="text-center" >{ targetColorHex }</p>
-        <p className="text-center" >{ targetColor.toString({ format: "rgb", precision: 4 }) }</p>
+        <p className="text-center" >{ target.toHexValue }</p>
+        <p className="text-center" >{ target.toString }</p>
       </div>
       { colorSpots }
     </div>
