@@ -1,18 +1,18 @@
-import { debounce } from "lodash";
+// import { debounce } from "lodash";
 import { observer } from "mobx-react-lite";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStore } from "../store/StoreContext";
 import { RadioBottons } from "./RadioBottons";
 
 export const ColorTextInput = observer(() => {
   const { uiStore } = useStore();
-  const [inputValue, setInputValue] = React.useState(uiStore.targetText);
-  const setDebouncedInput = debounce((value) => { uiStore.targetText = value }, 500);
+  const [inputValue, setInputValue] = useState(uiStore.targetText);
 
+  // debounce
   useEffect(() => {
-    setDebouncedInput(inputValue);
-    return setDebouncedInput.cancel;
-  }, [inputValue, setDebouncedInput]);
+    const timer = setTimeout(() => { uiStore.targetText = inputValue }, 500)
+    return () => clearTimeout(timer);
+  }, [inputValue, uiStore]);
 
   return (
     <div className="w-2xl  flex mt-6 mx-10">
@@ -21,7 +21,7 @@ export const ColorTextInput = observer(() => {
         currentValue={ uiStore.selectedAlgorithm }
         setValue={ uiStore.setAlgorithm }
       />
-      {/* <div>{ uiStore.targetText }</div> */}
+      {/* <div>{ uiStore.targetText }</div> */ }
       <input
         className="inline-block flex-grow px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
         disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
