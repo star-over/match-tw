@@ -18,7 +18,7 @@ export class UiStore {
   selectedAlgorithm = algorithms[0];
   selectedSpotCount = spotCounts[0];
   targetText = "#123456";
-  targetColor = parseTextColor("#123456");
+  // targetColor = parseTextColor("#123456");
   isValid = true;
   formAlgorithms = algorithms;
   formSpotsCount = spotCounts;
