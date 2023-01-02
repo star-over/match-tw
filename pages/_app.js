@@ -1,11 +1,11 @@
-import { AppStore } from "../context/store"
+import { StoreContext } from "../store/StoreContext"
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AppStore>
+    <StoreContext>
       <Component { ...pageProps } />
-    </AppStore>
+    </StoreContext>
   )
 }
 

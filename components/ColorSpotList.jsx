@@ -1,37 +1,46 @@
-import { useAppStore } from "../context/store";
+import { observer } from "mobx-react-lite";
+import { useStore } from "../store/StoreContext";
 import { contrastStyle } from "../utils/utils";
 import { ColorSpot } from "./ColorSpot";
+import { Toolbar } from "./Toolbar";
 
-export const ColorSpotList = () => {
-  const { matchColors, targetColor, targetColorHex } = useAppStore();
-  console.log("🚀 > ColorSpotList > matchColors", matchColors);
+export const ColorSpotList = observer(() => {
+  const { target } = useStore();
 
-
-  const colorSpots = matchColors.get
+  const colorSpots = target.matchColors
     .map(({ colorHex, colorName, dE }) => (
       <ColorSpot
-        dE={dE}
         key={ colorHex }
+        dE={ dE }
         colorName={ colorName }
         colorHex={ colorHex }
       />))
 
   return (
     <div
-      className="grid grid-cols-1 gap-12 p-12 rounded mt-6
-      sm:mx-2 sm:grid-cols-2 sm:rounded-lg sm:gap-x-6
-      md:mx-4 md:gap-x-12
-      lg:mx-8 lg:grid-cols-3 lg:rounded-xl
-      xl:mx-10 xl:rounded-xl
+      className="grid grid-cols-1 min-w-min gap-6 px-8 py-8 mt-6 transition-all delay-75 duration-700
+      sm:grid-cols-2 sm:rounded-lg sm:gap-x-6 sm:py-8 shadow-lg
+
+      lg:p-10 lg:grid-cols-3
+      xl:p-16
       2xl:mx-12 2xl:rounded-3xl"
-      style={ contrastStyle(targetColorHex.get) }
+      style={ contrastStyle(target.toHexValue) }
     >
-      <div className="col-span-full font-mono text-lg">
-        <p className="text-center " >current color</p>
-        <p className="text-center" >{targetColorHex.get}</p>
-        <p className="text-center" >{targetColor.get.toString({format: "rgb", precision: 4})}</p>
+
+      <div className="mx-auto max-w-xl min-w-min col-span-full  ">
+        <div className="bg-gray-200/60 px-4 sm:px-6 pt-6 pb-2 rounded-lg shadow-lg">
+          <Toolbar />
+        </div>
+        <div className="pt-4 font-mono text-xs sm:text-sm">
+          <p className="text-center">
+            <span >current color: </span>
+            <span >{ target.toHexValue } </span>
+            <span >{ target.toString }</span>
+          </p>
+        </div>
       </div>
+
       { colorSpots }
     </div>
   )
-};
+});
