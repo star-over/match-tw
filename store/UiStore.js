@@ -1,27 +1,21 @@
 // @ts-check
-import { autorun, configure, makeAutoObservable } from "mobx";
+import { autorun, makeAutoObservable } from "mobx";
 import { parseTextColor } from "../utils/utils";
 
 const algorithms = ["2000", "76", "Jz", "CMC", "ITP", "OK"];
 const spotCounts = ["12", "9", "6", "3"];
 
-configure({
-  enforceActions: "never",
-  computedRequiresReaction: true,
-  reactionRequiresObservable: true,
-  observableRequiresReaction: true,
-})
+
 
 export class UiStore {
   root;
   testValue = "12345";
   selectedAlgorithm = algorithms[0];
-  selectedSpotCount = spotCounts[0];
-  targetText = "#123456";
-  // targetColor = parseTextColor("#123456");
-  isValid = true;
+  selectedSpotCounts = spotCounts[0];
+  targetText = "teal";
+  isTextValid = true;
   formAlgorithms = algorithms;
-  formSpotsCount = spotCounts;
+  formSpotCounts = spotCounts;
 
   constructor(root) {
     makeAutoObservable(this);
@@ -33,11 +27,11 @@ export class UiStore {
   init() {
     autorun(() => {
       const color = parseTextColor(this.targetText);
-      this.isValid = false;
+      this.isTextValid = false;
       if (color) {
         color.alpha = 1; // set no-alpha
         this.targetColor = color;
-        this.isValid = true;
+        this.isTextValid = true;
         this.root.target.color = color;
       }
     });
@@ -45,7 +39,10 @@ export class UiStore {
   setAlgorithm = (value) => {
     this.selectedAlgorithm = value;
   }
-  setSpotCount = (value) => {
-    this.selectedSpotCount = value;
+  setSpotCounts = (value) => {
+    this.selectedSpotCounts = value;
+  }
+  setInputText = (value) => {
+    this.targetText = value.trim();
   }
 };

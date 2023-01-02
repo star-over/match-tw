@@ -1,15 +1,8 @@
 // @ts-check
-import { configure, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { parseTextColor, toHex } from "../utils/utils";
 import { twColors } from "../data/colorThemeDefault";
 
-
-configure({
-  enforceActions: "always",
-  computedRequiresReaction: true,
-  observableRequiresReaction: true,
-  reactionRequiresObservable: true,
-})
 
 export class TargetStore {
   root;
@@ -37,11 +30,11 @@ export class TargetStore {
     return this.color.toString({ format: "rgb", precision: 4 });
   }
   get matchColors() {
-    const { selectedAlgorithm, selectedSpotCount } = this.root.uiStore;
+    const { selectedAlgorithm, selectedSpotCounts } = this.root.uiStore;
     return twColors
       // @ts-ignore
       .map((currColor) => ({ ...currColor, dE: this.color.deltaE(currColor.color, selectedAlgorithm) }))
       .sort(({ dE: a }, { dE: b }) => a - b)
-      .slice(0, Number(selectedSpotCount));
+      .slice(0, Number(selectedSpotCounts));
   };
 };

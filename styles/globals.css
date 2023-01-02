@@ -4,5 +4,5 @@
 html,
 body,
 #__next {
-  @apply flex flex-col h-screen;
+  @apply flex flex-col  bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500;
 }
