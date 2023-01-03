@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <>
       <div className="container min-w-min mx-auto pb-32 px-2 sm:px-8">
+
         <Title />
         <ColorSpotList />
       </div>

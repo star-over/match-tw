@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon, SwatchIcon } from '@heroicons/react/20/solid'
+import { ExclamationCircleIcon, SwatchIcon } from '@heroicons/react/24/solid'
 import clsx from "clsx";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ export const InputColorText = observer(() => {
     "text-red-600": !isTextValid,
   })
 
-  const inputClassName = clsx("block pl-10 w-full text-4xl rounded-md pr-10 focus:outline-none bg-gray-100/50", {
+  const inputClassName = clsx("block pl-12 w-full text-4xl rounded-md pr-10 focus:outline-none bg-gray-100/50", {
     "border-gray-300 text-gray-600 placeholder-gray-300 focus:border-gray-500/80 focus:ring-gray-500/80": isTextValid,
     "border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500": !isTextValid,
   })
@@ -30,16 +30,16 @@ export const InputColorText = observer(() => {
       <div className="relative mt-1 rounded-md shadow-sm">
         { isTextValid
           ? <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <SwatchIcon className="h-5 w-5 text-gray-400/80" aria-hidden="true" />
+            <SwatchIcon className="h-8 w-8 text-gray-400/80" aria-hidden="true" />
           </div>
           : <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <ExclamationCircleIcon className="h-5 w-5 text-red-500/80" aria-hidden="true" />
+            <ExclamationCircleIcon className="h-8 w-8 text-red-500/80" aria-hidden="true" />
           </div> }
         <input
+          className={ inputClassName }
           type="text"
           name="colorText"
           id="colorText"
-          className={ inputClassName }
           placeholder="#123456 or gray or rgb(10, 20, 30)"
           value={ inputValue }
           onChange={ (e) => setInputValue(e.target.value) }
