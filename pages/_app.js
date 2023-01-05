@@ -16,6 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','G-E7DF1SB3B4');`}} />
     <Head>
       <title>Find a closest tailwind color</title>
+      <meta name="google-site-verification" content="-sOdF1gPYCr2Bp9yRF2mh-XlhKi7-n0V8h_OeHR8810" />
       <meta name='description' content='Closest color to tailwind palette CSS' />
       <link rel="icon" href="/favicon/favicon.ico" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
