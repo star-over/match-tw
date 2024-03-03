@@ -1,20 +1,17 @@
-import { observer } from "mobx-react-lite";
-import { useStore } from "../store/StoreContext";
 import { contrastStyle } from "../utils/utils";
 import { ColorSpot } from "./ColorSpot";
 import { Toolbar } from "./Toolbar";
 
-export const ColorSpotList = observer(() => {
-  const { target } = useStore();
+export const ColorSpotList = () => {
 
-  const colorSpots = target.matchColors
-    .map(({ colorHex, colorName, dE }) => (
-      <ColorSpot
-        key={ colorHex }
-        dE={ dE }
-        colorName={ colorName }
-        colorHex={ colorHex }
-      />))
+  // const colorSpots = target.matchColors
+  //   .map(({ colorHex, colorName, dE }) => (
+  //     <ColorSpot
+  //       key={ colorHex }
+  //       dE={ dE }
+  //       colorName={ colorName }
+  //       colorHex={ colorHex }
+  //     />))
 
   return (
     <div
@@ -24,7 +21,7 @@ export const ColorSpotList = observer(() => {
       lg:p-10 lg:grid-cols-3
       xl:p-16
       2xl:mx-12 2xl:rounded-3xl"
-      style={ contrastStyle(target.toHexValue) }
+      style={ contrastStyle("#f1f5f9") }
     >
 
       <div className="mx-auto max-w-xl min-w-min col-span-full  ">
@@ -34,13 +31,13 @@ export const ColorSpotList = observer(() => {
         <div className="pt-4 font-mono text-xs sm:text-sm">
           <p className="text-center">
             <span >current color: </span>
-            <span >{ target.toHexValue } </span>
-            <span >{ target.toString }</span>
+            <span >{ "#f1f5f9" } </span>
+            <span >{ "target.toString" }</span>
           </p>
         </div>
       </div>
 
-      { colorSpots }
+      {/* { colorSpots } */}
     </div>
   )
-});
+};

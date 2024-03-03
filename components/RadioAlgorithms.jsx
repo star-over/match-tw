@@ -1,10 +1,8 @@
-import { useStore } from "../store/StoreContext";
 import { RadioBottons } from "./RadioBottons";
 import { CodeBracketSquareIcon } from '@heroicons/react/20/solid'
-import { observer } from "mobx-react-lite";
 
-export const RadioAlgorithms = observer(() => {
-  const { uiStore: { setAlgorithm, formAlgorithms, selectedAlgorithm } } = useStore();
+export const RadioAlgorithms = () => {
+  // const { uiStore: { setAlgorithm, formAlgorithms, selectedAlgorithm } } = useStore();
 
   return (
     <div className="isolate h-10 flex-grow flex rounded-md shadow-sm bg-gray-100/50 border border-gray-300/80"
@@ -20,11 +18,11 @@ export const RadioAlgorithms = observer(() => {
           aria-hidden="true"
         />
       </label>
-      <RadioBottons
+      {/* <RadioBottons
         variants={ formAlgorithms }
         currentValue={ selectedAlgorithm }
         setValue={ setAlgorithm }
-      />
+      /> */}
     </div>
   )
-});
+};

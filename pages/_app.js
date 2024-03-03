@@ -1,7 +1,6 @@
-import Head from "next/head"
-import Script from "next/script"
-import { StoreContext } from "../store/StoreContext"
-import '../styles/globals.css'
+import Head from "next/head";
+import Script from "next/script";
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (<>
@@ -27,10 +26,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
       <link rel="manifest" href="/favicon/site.webmanifest" />
     </Head>
-    <StoreContext>
-      <Component { ...pageProps } />
-    </StoreContext>
-  </>)
+    <Component {...pageProps} />
+  </>);
 }
 
-export default MyApp
+export default MyApp;

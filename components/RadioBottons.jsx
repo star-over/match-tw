@@ -1,5 +1,4 @@
 import { cva } from "class-variance-authority";
-import { observer } from "mobx-react-lite";
 import React from "react";
 
 const button = cva(["flex-grow py-1 text-sm font-medium leading-none border border-gray-400/90",
@@ -25,7 +24,7 @@ const RadioBotton = ({ selected, value, setSelected }) => {
   )
 };
 
-export const RadioBottons = observer(({ variants, currentValue, setValue }) => {
+export const RadioBottons = ({ variants, currentValue, setValue }) => {
   const radioItems = variants.map((variant) => (
     <
       RadioBotton
@@ -41,4 +40,4 @@ export const RadioBottons = observer(({ variants, currentValue, setValue }) => {
       { radioItems }
     </div>
   )
-});
+};
