@@ -1,3 +1,5 @@
+'use client'
+
 import { cva } from "class-variance-authority";
 import React from "react";
 
@@ -40,4 +42,5 @@ export const RadioBottons = ({ variants, currentValue, setValue }) => {
       { radioItems }
     </div>
   )
+
 };

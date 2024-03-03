@@ -1,3 +1,5 @@
+'use client'
+
 import { ExclamationCircleIcon, SwatchIcon } from '@heroicons/react/24/solid'
 import clsx from "clsx";
 import { useEffect, useState } from "react";

@@ -38,6 +38,16 @@ export const ColorSpotList = () => {
       </div>
 
       {/* { colorSpots } */}
+      <ColorSpot
+         dE={ 20 }
+         colorName={ "colorName" }
+         colorHex={ "#FEFEFE" }
+       />
+      <ColorSpot
+         dE={ 20 }
+         colorName={ "colorName" }
+         colorHex={ "#5E6E4E" }
+       />
     </div>
   )
 };

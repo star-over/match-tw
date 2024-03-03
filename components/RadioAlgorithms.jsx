@@ -1,3 +1,6 @@
+'use client'
+
+
 import { RadioBottons } from "./RadioBottons";
 import { CodeBracketSquareIcon } from '@heroicons/react/20/solid'
 
