@@ -1,7 +1,7 @@
 // @ts-check
 import { makeAutoObservable } from "mobx";
 import { parseTextColor, toHex } from "../utils/utils";
-import { twColors } from "../data/colorThemeDefault";
+import { twColors } from "../lib/colorThemeDefault";
 
 
 export class TargetStore {

@@ -3,11 +3,14 @@
 import { ExclamationCircleIcon, SwatchIcon } from '@heroicons/react/24/solid'
 import clsx from "clsx";
 import { useEffect, useState } from "react";
+import { defaultColor } from "../lib/colorUtil";
 
 export const InputColorText = () => {
   // const { uiStore: { setInputText, targetText, isTextValid } } = useStore();
-  // const [inputValue, setInputValue] = useState(targetText);
+  const [inputValue, setInputValue] = useState(defaultColor);
 
+
+  
   // debounce
   // useEffect(() => {
   //   const timer = setTimeout(() => { setInputText(inputValue) }, 500)
@@ -41,8 +44,8 @@ export const InputColorText = () => {
           name="colorText"
           id="colorText"
           placeholder="#123456 or gray or rgb(10, 20, 30)"
-          value={ "inputValue" }
-          // onChange={ (e) => setInputValue(e.target.value) }
+          value={ inputValue }
+          onChange={ (e) => setInputValue(e.target.value) }
         />
       </div>
       <p

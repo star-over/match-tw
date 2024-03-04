@@ -5,11 +5,11 @@ import React from "react";
 
 const button = cva(["flex-grow py-1 text-sm font-medium leading-none border border-gray-400/90",
   "rounded-sm first:rounded-l-md last:rounded-r-md ",
-  "text-gray-600 active:bg-gray-200/50 hover:bg-gray-50/50 hover:shadow active:shadow",
+  "text-gray-600 active:bg-gray-200/50 hover:bg-gray-200 hover:shadow active:shadow",
   "transition"],
   {
     variants: {
-      selected: { true: ["bg-gray-400/80 hover:bg-gray-400/50 shadow"] },
+      selected: { true: ["ring-2 ring-black hover:bg-none pointer-events-none"] },
     },
     defaultVariants: { selected: false },
   });

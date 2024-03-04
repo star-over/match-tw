@@ -1,11 +1,31 @@
-'use client'
+'use client';
 
-
+import { algorithmVariants, queryParams } from "../lib/colorUtil";
 import { RadioBottons } from "./RadioBottons";
-import { CodeBracketSquareIcon } from '@heroicons/react/20/solid'
+import { CodeBracketSquareIcon } from '@heroicons/react/20/solid';
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export const RadioAlgorithms = () => {
-  // const { uiStore: { setAlgorithm, formAlgorithms, selectedAlgorithm } } = useStore();
+export function RadioAlgorithms() {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
+  const { alias, defaultValue } = queryParams["algorithm"];
+
+  const algorithm = searchParams.has(alias)
+    ? searchParams.get(alias)
+    : defaultValue;
+
+  function setQueryParam(value) {
+    const params = new URLSearchParams(searchParams);
+
+    if (value === defaultValue) {
+      params.delete(alias);
+    } else {
+      params.set(alias, value);
+    }
+
+    router.push(`${pathname}?${params}`);
+  }
 
   return (
     <div className="isolate h-10 flex-grow flex rounded-md shadow-sm bg-gray-100/50 border border-gray-300/80"
@@ -21,11 +41,11 @@ export const RadioAlgorithms = () => {
           aria-hidden="true"
         />
       </label>
-      {/* <RadioBottons
-        variants={ formAlgorithms }
-        currentValue={ selectedAlgorithm }
-        setValue={ setAlgorithm }
-      /> */}
+      <RadioBottons
+        variants={algorithmVariants}
+        currentValue={algorithm}
+        setValue={setQueryParam}
+      />
     </div>
-  )
-};
+  );
+}

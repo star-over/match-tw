@@ -8,7 +8,6 @@ export default function Home() {
       <div className="container min-w-min mx-auto pb-32 px-2 sm:px-8">
 
         <Title />
-        <span>app directory</span>
         <ColorSpotList />
       </div>
       <Breakpoints />

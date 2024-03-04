@@ -3,7 +3,7 @@ import Color from "colorjs.io";
 
 export const toHex = (color) => Color.defaults.display_space.formats.hex.serialize(color.coords);
 
-export const parseTextColor = (text) => {
+ const parseTextColor = (text) => {
   try {
     return Color.get(text);
   } catch (err) {
@@ -26,7 +26,7 @@ export const contrastStyle = (colorHex) => ({
   color: getContrastColorHex(colorHex),
 })
 
-export const sortByDeltaE = ({ themeColors, targetColor, matchCount = 9 }) => {
+const sortByDeltaE = ({ themeColors, targetColor, matchCount = 9 }) => {
   const DELTA_E_ALGORITHM = "2000";
   return themeColors
     .map((currColor) => ({ ...currColor, dE: targetColor.deltaE(currColor.color, DELTA_E_ALGORITHM) }))

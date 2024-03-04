@@ -1,7 +1,13 @@
+'use client'
+
+import { useState } from "react";
 import { RadioBottons } from "./RadioBottons";
 import { SquaresPlusIcon } from '@heroicons/react/20/solid'
+import { spotCountsVariants } from "../lib/colorUtil";
+
 
 export const RadioSpotCount = () => {
+  const [spotCountVariant, setSetspotCountVariant] = useState(spotCountsVariants[0]);
   // const { uiStore: { setSpotCounts, formSpotCounts, selectedSpotCounts } } = useStore();
 
   return (
@@ -14,11 +20,11 @@ export const RadioSpotCount = () => {
       >
         <SquaresPlusIcon className="h-5 w-5 text-gray-400/80" aria-hidden="true" />
       </label>
-      {/* <RadioBottons
-        variants={ formSpotCounts }
-        currentValue={ selectedSpotCounts }
-        setValue={ setSpotCounts }
-      /> */}
+      <RadioBottons
+        variants={ spotCountsVariants }
+        currentValue={ spotCountVariant }
+        setValue={ setSetspotCountVariant }
+      />
     </div>
   )
 };
