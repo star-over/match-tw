@@ -1,31 +1,12 @@
 'use client';
 
-import { algorithmVariants, queryParams } from "../lib/colorUtil";
+import { algorithmVariants } from "../lib/colorUtil";
+import { useSearchParamsState } from "../lib/searchParamsState";
 import { RadioBottons } from "./RadioBottons";
 import { CodeBracketSquareIcon } from '@heroicons/react/20/solid';
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export function RadioAlgorithms() {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
-  const { alias, defaultValue } = queryParams["algorithm"];
-
-  const algorithm = searchParams.has(alias)
-    ? searchParams.get(alias)
-    : defaultValue;
-
-  function setQueryParam(value) {
-    const params = new URLSearchParams(searchParams);
-
-    if (value === defaultValue) {
-      params.delete(alias);
-    } else {
-      params.set(alias, value);
-    }
-
-    router.push(`${pathname}?${params}`);
-  }
+  const [algorithm, setAlgorithm] = useSearchParamsState("algorithm");
 
   return (
     <div className="isolate h-10 flex-grow flex rounded-md shadow-sm bg-gray-100/50 border border-gray-300/80"
@@ -44,7 +25,7 @@ export function RadioAlgorithms() {
       <RadioBottons
         variants={algorithmVariants}
         currentValue={algorithm}
-        setValue={setQueryParam}
+        setValue={setAlgorithm}
       />
     </div>
   );

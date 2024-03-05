@@ -2,6 +2,8 @@ import { Title } from "../components/Title";
 import { Breakpoints } from "../components/Breakpoints";
 import { ColorSpotList } from "../components/ColorSpotList";
 
+export const dynamic = 'force-dynamic'
+
 export default function Home() {
   return (
     <>
