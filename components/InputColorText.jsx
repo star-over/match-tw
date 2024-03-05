@@ -1,6 +1,6 @@
 'use client';
 
-import { ExclamationCircleIcon, SwatchIcon } from '@heroicons/react/24/solid';
+import { ExclamationCircleIcon, SwatchIcon, ArrowRightCircleIcon } from '@heroicons/react/24/solid';
 import clsx from "clsx";
 import { useState } from "react";
 import { useSearchParamsState } from "../lib/searchParamsState";
@@ -11,7 +11,7 @@ export const InputColorText = () => {
 
   const matchColorAction = (color) => {
     setTargetColor(color);
-  }
+  };
 
   const pClassName = clsx("m-2 text-sm transition duration-500", {
     "text-gray-600": true,
@@ -44,13 +44,19 @@ export const InputColorText = () => {
           onKeyUp={(e) => (e.code === "Enter") && matchColorAction(e.target.value)}
           onChange={(e) => setInputValue(e.target.value)}
         />
+
+        <button
+          className="absolute inset-y-0 right-0 flex items-center pr-3"
+          onClick={() => setTargetColor(inputValue)}
+        >
+          <kbd
+            className="right-[0.3rem] top-[0.3rem] h-8 select-none group items-center gap-1 rounded border bg-slate-300 hover:bg-slate-400/50 px-4 font-mono font-medium opacity-100 flex"
+          >Enter
+            <ArrowRightCircleIcon className="size-6 text-gray-400/80 group-hover:text-black" />
+          </kbd>
+        </button>
+
       </div>
-      <button
-        className="w-24 bg-slate-400 rounded"
-        onClick={() => setTargetColor(inputValue)}
-      >
-        Match!
-      </button>
       <p
         className={pClassName}>
         Enter the colour you wish to match in the tailwind palette. The colour can be specified as a word such as <strong>teal</strong>, or in hex <strong>#008080</strong> format, or&nbsp;in&nbsp;<strong>rgb(0,&nbsp;128,&nbsp;128)</strong> format, in any form that can be used in CSS.</p>
