@@ -4,36 +4,40 @@ import { ExclamationCircleIcon, SwatchIcon, ArrowRightCircleIcon } from '@heroic
 import clsx from "clsx";
 import { useState } from "react";
 import { useSearchParamsState } from "../lib/searchParamsState";
+import { validateColor } from "../lib/colorUtil";
 
 export const InputColorText = () => {
   const [targetColor, setTargetColor] = useSearchParamsState("targetColor");
   const [inputValue, setInputValue] = useState(targetColor);
+  const [isValid, setIsValid] = useState(true);
 
   const matchColorAction = (color) => {
-    setTargetColor(color);
+    const validStatus = Boolean(validateColor(color));
+    setIsValid(validStatus);
+    if (validStatus) setTargetColor(color);
   };
 
   const pClassName = clsx("m-2 text-sm transition duration-500", {
-    "text-gray-600": true,
-    "text-red-600": false,
+    "text-gray-600": isValid,
+    "text-red-600": !isValid,
   });
 
   const inputClassName = clsx("block pl-12 w-full text-4xl rounded-md pr-10 focus:outline-none bg-gray-100/50", {
-    "border-gray-300 text-gray-600 placeholder-gray-300 focus:border-gray-500/80 focus:ring-gray-500/80": true,
-    "border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500": false,
+    "border-gray-300 text-gray-600 placeholder-gray-300 focus:border-gray-500/80 focus:ring-gray-500/80": isValid,
+    "border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500": !isValid,
   });
 
   return (
     <div>
       <label htmlFor="colorText" className="sr-only">Input color</label>
       <div className="relative mt-1 rounded-md shadow-sm">
-        {true
-          ? <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <SwatchIcon className="h-8 w-8 text-gray-400/80" aria-hidden="true" />
-          </div>
-          : <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <ExclamationCircleIcon className="h-8 w-8 text-red-500/80" aria-hidden="true" />
-          </div>}
+        <div className="pointer-events-none absolute
+            inset-y-0 left-0 flex items-center pl-3">
+          {isValid
+            ? <SwatchIcon className="h-8 w-8 text-gray-400/80" aria-hidden="true" />
+            : <ExclamationCircleIcon className="h-8 w-8 text-red-500/80" aria-hidden="true" />}
+        </div>
+
         <input
           className={inputClassName}
           type="text"
@@ -47,12 +51,12 @@ export const InputColorText = () => {
 
         <button
           className="absolute inset-y-0 right-0 flex items-center pr-3"
-          onClick={() => setTargetColor(inputValue)}
+          onClick={() => matchColorAction(inputValue)}
         >
           <kbd
-            className="right-[0.3rem] top-[0.3rem] h-8 select-none group items-center gap-1 rounded border bg-slate-300 hover:bg-slate-400/50 px-4 font-mono font-medium opacity-100 flex"
+            className="right-[0.3rem] top-[0.3rem] h-8 select-none group items-center gap-1 rounded border bg-slate-200 hover:bg-slate-300 px-4 font-mono font-medium opacity-100 flex"
           >Enter
-            <ArrowRightCircleIcon className="size-6 text-gray-400/80 group-hover:text-black" />
+            <ArrowRightCircleIcon className="size-6 text-gray-400 group-hover:text-black" />
           </kbd>
         </button>
 
