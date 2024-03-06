@@ -1,17 +1,31 @@
+import { useSearchParams } from "next/navigation";
 import { contrastStyle } from "../utils/utils";
 import { ColorSpot } from "./ColorSpot";
 import { Toolbar } from "./Toolbar";
+import { twColors } from "../lib/colorThemeDefault";
+import Color from "colorjs.io";
+import { textToColor } from "../lib/colorUtil";
 
-export const ColorSpotList = () => {
+export const ColorSpotList = async ({ targetColor, algorithm, spotCount }) => {
+  // const s = await new Promise((res) => setTimeout(res, 2000));
+  const color = textToColor(targetColor);
+  const matchColors = twColors
+    .map((currColor) => ({
+      ...currColor,
+      dE: color.deltaE(currColor.color, algorithm)
+    }))
+    .sort(({ dE: a }, { dE: b }) => a - b)
+    .slice(0, Number(spotCount));
 
-  // const colorSpots = target.matchColors
-  //   .map(({ colorHex, colorName, dE }) => (
-  //     <ColorSpot
-  //       key={ colorHex }
-  //       dE={ dE }
-  //       colorName={ colorName }
-  //       colorHex={ colorHex }
-  //     />))
+
+  const colorSpots = matchColors
+    .map(({ colorHex, colorName, dE }) => (
+      <ColorSpot
+        key={colorHex}
+        dE={dE}
+        colorName={colorName}
+        colorHex={colorHex}
+      />));
 
   return (
     <div
@@ -21,7 +35,7 @@ export const ColorSpotList = () => {
       lg:p-10 lg:grid-cols-3
       xl:p-16
       2xl:mx-12 2xl:rounded-3xl"
-      style={ contrastStyle("#f1f5f9") }
+      style={contrastStyle("#f1f5f9")}
     >
 
       <div className="mx-auto max-w-xl min-w-min col-span-full  ">
@@ -31,23 +45,14 @@ export const ColorSpotList = () => {
         <div className="pt-4 font-mono text-xs sm:text-sm">
           <p className="text-center">
             <span >current color: </span>
-            <span >{ "#f1f5f9" } </span>
-            <span >{ "target.toString" }</span>
+            <span >{"#f1f5f9"} </span>
+            <span >{"target.toString"}</span>
           </p>
         </div>
       </div>
 
-      {/* { colorSpots } */}
-      <ColorSpot
-         dE={ 20 }
-         colorName={ "colorName" }
-         colorHex={ "#FEFEFE" }
-       />
-      <ColorSpot
-         dE={ 20 }
-         colorName={ "colorName" }
-         colorHex={ "#5E6E4E" }
-       />
+      {colorSpots}
+
     </div>
-  )
+  );
 };
