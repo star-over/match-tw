@@ -7,14 +7,14 @@ import { useSearchParamsState } from "../lib/searchParamsState";
 import { validateColor } from "../lib/colorUtil";
 
 export const InputColorText = () => {
-  const [targetColor, setTargetColor] = useSearchParamsState("targetColor");
-  const [inputValue, setInputValue] = useState(targetColor);
+  const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
+  const [inputValue, setInputValue] = useState(targetTextColor);
   const [isValid, setIsValid] = useState(true);
 
   const matchColorAction = (color) => {
     const validStatus = Boolean(validateColor(color));
     setIsValid(validStatus);
-    if (validStatus) setTargetColor(color);
+    if (validStatus) setTargetTextColor(color);
   };
 
   const pClassName = clsx("m-2 text-sm transition duration-500", {

@@ -3,9 +3,9 @@ import { ColorSpot } from "./ColorSpot";
 import { Toolbar } from "./Toolbar";
 import { getMatchColors } from "../lib/colorUtil";
 
-export async function ColorSpotList({ targetColor, algorithm, spotCount }) {
+export async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
 
-  const matchColors = getMatchColors(targetColor, algorithm, spotCount);
+  const matchColors = getMatchColors(targetTextColor, algorithm, spotCount);
   const colorSpots = matchColors
     .map(({ colorHex, colorName, dE }) => (
       <ColorSpot
@@ -23,7 +23,7 @@ export async function ColorSpotList({ targetColor, algorithm, spotCount }) {
       lg:p-10 lg:grid-cols-3
       xl:p-16
       2xl:mx-12 2xl:rounded-3xl"
-      style={contrastStyle(targetColor)}
+      style={contrastStyle(targetTextColor)}
     >
 
       <div className="mx-auto max-w-xl min-w-min col-span-full  ">
@@ -33,7 +33,7 @@ export async function ColorSpotList({ targetColor, algorithm, spotCount }) {
         <div className="pt-4 font-mono text-xs sm:text-sm">
           <p className="text-center">
             <span >current color: </span>
-            <span >{targetColor} </span>
+            <span >{targetTextColor} </span>
             <span >{"target.toString"}</span>
           </p>
         </div>
