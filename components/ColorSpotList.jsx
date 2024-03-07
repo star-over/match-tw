@@ -1,23 +1,11 @@
-import { useSearchParams } from "next/navigation";
 import { contrastStyle } from "../utils/utils";
 import { ColorSpot } from "./ColorSpot";
 import { Toolbar } from "./Toolbar";
-import { twColors } from "../lib/colorThemeDefault";
-import Color from "colorjs.io";
-import { textToColor } from "../lib/colorUtil";
+import { getMatchColors } from "../lib/colorUtil";
 
-export const ColorSpotList = async ({ targetColor, algorithm, spotCount }) => {
-  // const s = await new Promise((res) => setTimeout(res, 2000));
-  const color = textToColor(targetColor);
-  const matchColors = twColors
-    .map((currColor) => ({
-      ...currColor,
-      dE: color.deltaE(currColor.color, algorithm)
-    }))
-    .sort(({ dE: a }, { dE: b }) => a - b)
-    .slice(0, Number(spotCount));
+export async function ColorSpotList({ targetColor, algorithm, spotCount }) {
 
-
+  const matchColors = getMatchColors(targetColor, algorithm, spotCount);
   const colorSpots = matchColors
     .map(({ colorHex, colorName, dE }) => (
       <ColorSpot
@@ -35,7 +23,7 @@ export const ColorSpotList = async ({ targetColor, algorithm, spotCount }) => {
       lg:p-10 lg:grid-cols-3
       xl:p-16
       2xl:mx-12 2xl:rounded-3xl"
-      style={contrastStyle("#f1f5f9")}
+      style={contrastStyle(targetColor)}
     >
 
       <div className="mx-auto max-w-xl min-w-min col-span-full  ">
@@ -45,7 +33,7 @@ export const ColorSpotList = async ({ targetColor, algorithm, spotCount }) => {
         <div className="pt-4 font-mono text-xs sm:text-sm">
           <p className="text-center">
             <span >current color: </span>
-            <span >{"#f1f5f9"} </span>
+            <span >{targetColor} </span>
             <span >{"target.toString"}</span>
           </p>
         </div>
@@ -55,4 +43,4 @@ export const ColorSpotList = async ({ targetColor, algorithm, spotCount }) => {
 
     </div>
   );
-};
+}
