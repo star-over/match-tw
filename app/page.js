@@ -3,6 +3,7 @@ import { Breakpoints } from "../components/Breakpoints";
 import { ColorSpotList } from "../components/ColorSpotList";
 import { Suspense } from "react";
 import { getServerSearchParamsState } from "../lib/searchParamsState";
+import { textToColor } from "../lib/colorUtil";
 
 // export const dynamic = 'force-dynamic';
 
@@ -10,6 +11,7 @@ export default function Home({ searchParams }) {
   const targetTextColor = getServerSearchParamsState("targetTextColor", searchParams);
   const algorithm = getServerSearchParamsState("algorithm", searchParams);
   const spotCount = getServerSearchParamsState("spotCount", searchParams);
+
 
   console.log("🚀 > Home > searchParams:", targetTextColor, algorithm, spotCount);
   return (
