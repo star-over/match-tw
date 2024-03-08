@@ -3,6 +3,7 @@ import { contrastStyle } from "../utils/utils";
 export const ColorSpot = (props) => {
   const { colorName, colorHex, dE} = props;
 
+  // todo: make it with a clipboard copy feature
   return (
     <div
       className="text-md font-mono text-center rounded-xl h-32

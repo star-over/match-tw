@@ -14,7 +14,9 @@ export const InputColorText = () => {
   const matchColorAction = (color) => {
     const validStatus = Boolean(validateColor(color));
     setIsValid(validStatus);
-    if (validStatus) setTargetTextColor(color);
+    if (validStatus) {
+      setTargetTextColor(color);
+    }
   };
 
   const pClassName = clsx("m-2 text-sm transition duration-500", {
@@ -45,11 +47,12 @@ export const InputColorText = () => {
           id="colorText"
           placeholder="#123456 or gray or rgb(10, 20, 30)"
           value={inputValue}
-          onKeyUp={(e) => (e.code === "Enter") && matchColorAction(e.target.value)}
+          onKeyUp={(e) => (e.code === "Enter") && matchColorAction(inputValue)}
           onChange={(e) => setInputValue(e.target.value)}
         />
 
         <button
+          type="submit"
           className="absolute inset-y-0 right-0 flex items-center pr-3"
           onClick={() => matchColorAction(inputValue)}
         >

@@ -36,11 +36,18 @@ export async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
         </div>
         <div className="pt-4 font-mono text-xs sm:text-sm">
           <p className="text-center">
-            <span >current color: </span><br />
+            <span >current color variants: </span><br />
 
+            {/* // todo: make it as chip (tag) with copy featute */}
             {textColors.map((textColor, i) => (
               <React.Fragment key={i}>
-                <span>{textColor}</span><br />
+                <span
+                  className="mx-4 px-4 py-1"
+                  style={contrastStyle(textColor)}
+                >
+                  {textColor}
+                </span>
+                <br />
               </React.Fragment>
             ))}
 
