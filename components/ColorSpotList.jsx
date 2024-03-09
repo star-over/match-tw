@@ -1,14 +1,13 @@
-import { contrastStyle } from "../utils/utils";
+import { getContrastStyle, getColorTexts, getMatchColors, textToColor } from "../lib/colorUtil";
 import { ColorSpot } from "./ColorSpot";
 import { Toolbar } from "./Toolbar";
-import { getColorTexts, getMatchColors, textToColor } from "../lib/colorUtil";
 import React from "react";
 
-export async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
+export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
   // todo: validate is color correct
   const targetColor = textToColor(targetTextColor).to("srgb");
-  const textColors = getColorTexts(targetColor);
-  const matchColors = getMatchColors(targetColor, algorithm, spotCount);
+  const textColors = await getColorTexts(targetColor);
+  const matchColors = await getMatchColors(targetColor, algorithm, spotCount);
   const colorSpots = matchColors.map(({ colorHex, colorName, dE }) => (
     <ColorSpot
       key={colorHex}
@@ -27,11 +26,11 @@ export async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
       2xl:mx-12 2xl:rounded-3xl"
 
       // todo: add fallback here, if color is incorrect
-      style={contrastStyle(textColors.at(0))}
+      style={getContrastStyle(textColors.at(0))}
     >
 
       <div className="mx-auto max-w-xl min-w-min col-span-full  ">
-        <div className="bg-gray-200/60 px-4 sm:px-6 pt-6 pb-2 rounded-lg shadow-lg">
+        <div className="bg-gray-200 px-4 pt-6 pb-2 rounded-lg shadow-lg">
           <Toolbar />
         </div>
         <div className="pt-4 font-mono text-xs sm:text-sm">
@@ -43,7 +42,7 @@ export async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
               <React.Fragment key={i}>
                 <span
                   className="mx-4 px-4 py-1"
-                  style={contrastStyle(textColor)}
+                  style={getContrastStyle(textColor)}
                 >
                   {textColor}
                 </span>

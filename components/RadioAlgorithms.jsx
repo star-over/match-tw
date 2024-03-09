@@ -1,15 +1,15 @@
 'use client';
 
+import { RadicalIcon } from "lucide-react";
 import { algorithmVariants } from "../lib/colorUtil";
 import { useSearchParamsState } from "../lib/searchParamsState";
 import { RadioBottons } from "./RadioBottons";
-import { CodeBracketSquareIcon } from '@heroicons/react/20/solid';
 
 export function RadioAlgorithms() {
   const [algorithm, setAlgorithm] = useSearchParamsState("algorithm");
 
   return (
-    <div className="isolate h-10 flex-grow flex rounded-md shadow-sm bg-gray-100/50 border border-gray-300/80"
+    <div className="isolate h-10 flex-grow flex rounded-md shadow-sm bg-gray-100 border border-gray-300"
       title="Choose an algorithm to calculate the delta E"
     >
       <label
@@ -17,9 +17,7 @@ export function RadioAlgorithms() {
         htmlFor="message-type"
         title="Choose an algorithm to calculate the delta E"
       >
-        <CodeBracketSquareIcon
-          className="h-5 w-5 text-gray-400/80"
-          aria-hidden="true"
+        <RadicalIcon className="size-5 text-gray-400" aria-hidden="true"
         />
       </label>
       <RadioBottons
