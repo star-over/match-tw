@@ -4,7 +4,10 @@ import clsx from "clsx";
 import { useState } from "react";
 import { useSearchParamsState } from "../lib/searchParamsState";
 import { validateColor } from "../lib/colorUtil";
-import { CircleAlertIcon, CornerDownLeftIcon, SwatchBookIcon } from "lucide-react";
+import { CircleAlertIcon, SwatchBookIcon } from "lucide-react";
+import { Button } from "./ui/button";
+import { Kbd, KbdEnter } from "./ui/kbd";
+import { Input } from "./ui/input";
 
 export const InputColorText = () => {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
@@ -24,21 +27,21 @@ export const InputColorText = () => {
     "text-red-600": !isValid,
   });
 
-  const inputClassName = clsx("block pl-12 w-full text-4xl text-gray-600 placeholder-gray-300 rounded-md pr-10 focus:outline-none bg-gray-100", {
+  const inputClassName = clsx("pl-2 text-4xl w-full text-gray-600 placeholder-gray-300 rounded-md focus:outline-none bg-gray-100", {
     "border-gray-300 focus:border-gray-500 focus:ring-gray-500": isValid,
     "border-red-300 focus:border-red-500 focus:ring-red-500": !isValid,
   });
 
   return (
-    <div>
-      <label htmlFor="colorText" className="sr-only">Input color</label>
-      <div className="relative mt-1 rounded-md shadow-sm">
-        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+    <div className="flex flex-col">
+      <div className="flex justify-between gap-2">
+        <div className="pointer-events-none pl-3 pt-1">
           {isValid
             ? <SwatchBookIcon className="h-8 w-8 text-gray-400" aria-hidden="true" />
             : <CircleAlertIcon className="h-8 w-8 text-red-400" aria-hidden="true" />}
         </div>
 
+            {/* <Input> */}
         <input
           className={inputClassName}
           autoComplete="off"
@@ -46,7 +49,6 @@ export const InputColorText = () => {
           autoCapitalize="off"
           enterKeyHint="search"
           spellCheck="false"
-          maxLength="100"
           aria-label="Search"
           type="search"
           name="colorText"
@@ -56,20 +58,12 @@ export const InputColorText = () => {
           onKeyUp={(e) => (e.code === "Enter") && matchColorAction(inputValue)}
           onChange={(e) => setInputValue(e.target.value)}
         />
-
-        <button
+        <Button
           type="submit"
-          className="absolute inset-y-0 right-0 flex items-center pr-3"
           onClick={() => matchColorAction(inputValue)}
         >
-          <kbd
-            className="right-[0.3rem] top-[0.3rem] h-8 select-none items-center gap-1
-            rounded-lg border bg-slate-700 text-slate-200 hover:bg-slate-800 px-4 font-mono font-medium flex"
-          >Enter
-            <CornerDownLeftIcon className="size-5 text-slate-200" />
-          </kbd>
-        </button>
-
+          Search <KbdEnter />
+        </Button>
       </div>
       <p
         className={pClassName}>
