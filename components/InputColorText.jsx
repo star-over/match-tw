@@ -42,6 +42,10 @@ export const InputColorText = () => {
         <input
           className={inputClassName}
           autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          enterKeyHint="search"
+          spellCheck="false"
           maxLength="100"
           aria-label="Search"
           type="search"
@@ -62,7 +66,7 @@ export const InputColorText = () => {
             className="right-[0.3rem] top-[0.3rem] h-8 select-none items-center gap-1
             rounded-lg border bg-slate-700 text-slate-200 hover:bg-slate-800 px-4 font-mono font-medium flex"
           >Enter
-            <CornerDownLeftIcon className="size-5 text-slate-200"/>
+            <CornerDownLeftIcon className="size-5 text-slate-200" />
           </kbd>
         </button>
 
