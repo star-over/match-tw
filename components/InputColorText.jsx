@@ -15,7 +15,7 @@ export const InputColorText = () => {
     const validStatus = Boolean(validateColor(value));
     setIsValid(validStatus);
     if (validStatus) {
-      setTargetTextColor(String(value).toLowerCase());
+      setTargetTextColor(String(value).toLowerCase().replaceAll("none", "0"));
     }
   };
 
