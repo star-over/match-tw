@@ -8,6 +8,8 @@ import { CircleAlertIcon, SwatchBookIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { Kbd, KbdEnter } from "./ui/kbd";
 import { Input } from "./ui/input";
+import { InputIcon } from "./ui/input-icon";
+import { Separator } from "@radix-ui/react-separator";
 
 export const InputColorText = () => {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
@@ -34,23 +36,18 @@ export const InputColorText = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between gap-2">
-        <div className="pointer-events-none pl-3 pt-1">
-          {isValid
-            ? <SwatchBookIcon className="h-8 w-8 text-gray-400" aria-hidden="true" />
-            : <CircleAlertIcon className="h-8 w-8 text-red-400" aria-hidden="true" />}
-        </div>
-
-            {/* <Input> */}
-        <input
-          className={inputClassName}
+      <div className="mt-2 flex items-center rounded-lg border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500">
+        <InputIcon {...{ isValid }}/>
+        <Separator orientation="vertical"/>
+        <Input
+          className=""
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"
-          enterKeyHint="search"
+          enterKeyHint="go"
           spellCheck="false"
           aria-label="Search"
-          type="search"
+          type="text"
           name="colorText"
           id="colorText"
           placeholder="CSS4 color..."
@@ -58,11 +55,11 @@ export const InputColorText = () => {
           onKeyUp={(e) => (e.code === "Enter") && matchColorAction(inputValue)}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <Button
+        <Button size="sm" className="m-0.5"
           type="submit"
           onClick={() => matchColorAction(inputValue)}
         >
-          Search <KbdEnter />
+          Go! <KbdEnter />
         </Button>
       </div>
       <p
