@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { KbdEnter } from "./ui/kbd";
 import { Input } from "./ui/input";
 import { InputIcon } from "./ui/input-icon";
-import { Separator } from "@radix-ui/react-separator";
+import Link from "next/link";
 
 export const InputColorText = () => {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
@@ -26,8 +26,7 @@ export const InputColorText = () => {
   return (
     <div className="flex flex-col">
       <div className="mt-2 flex items-center rounded-lg border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500">
-        <InputIcon {...{ isValid }}/>
-        <Separator orientation="vertical"/>
+        <InputIcon {...{ isValid }} />
         <Input
           className=""
           id="colorText"
@@ -56,7 +55,14 @@ export const InputColorText = () => {
           "text-gray-600": isValid,
           "text-red-600": !isValid,
         })}>
-        Enter the colour you wish to match in the tailwind palette. The colour can be specified as a word such as <strong>teal</strong>, or in hex <strong>#008080</strong> format, or&nbsp;in&nbsp;<strong>rgb(0,&nbsp;128,&nbsp;128)</strong> format, in any form that can be used in CSS.</p>
+
+        The color can be specified as a word such as&nbsp;
+        <strong><Link className="hover:underline" href={{ pathname: "/", query: { c: "skyblue" } }} scroll={false}>skyblue</Link></strong>
+        , or in hex&nbsp;
+        <strong><Link className="hover:underline" href={{ pathname: "/", query: { c: "#748af9" } }} scroll={false}>#748af9</Link></strong>
+        &#160;format, or&nbsp;in&nbsp;CSS format&#160;
+        <strong><Link className="hover:underline" href={{ pathname: "/", query: { c: "rgb(173, 250, 77)" } }} scroll={false}>rgb(173,&nbsp;250,&nbsp;77)</Link></strong>
+      </p>
     </div>
   );
 };

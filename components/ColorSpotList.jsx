@@ -18,9 +18,9 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
 
   return (
     <div
-      className="grid grid-cols-1 min-w-min gap-6 px-8 py-8 mt-6 transition-all delay-75 duration-700
+      className="grid grid-cols-1 min-w-max gap-6 px-8 py-8 mt-6
+      transition-all delay-75 duration-700
       sm:grid-cols-2 sm:rounded-lg sm:gap-x-6 sm:py-8 shadow-lg
-
       lg:p-10 lg:grid-cols-3
       xl:p-16
       2xl:mx-12 2xl:rounded-3xl"
@@ -29,7 +29,7 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
       style={getContrastStyle(textColors.at(0))}
     >
 
-      <div className="mx-auto max-w-xl min-w-min col-span-full  ">
+      <div className="mx-auto max-w-xl min-w-min col-span-full">
         <div className="bg-gray-200 px-4 pt-6 pb-2 rounded-lg shadow-lg">
           <Toolbar />
         </div>

@@ -1,6 +1,5 @@
 import { InputColorText } from "./InputColorText";
-import { RadioAlgorithms } from "./RadioAlgorithms";
-import { RadioSpotCount } from "./RadioSpotCount";
+import { SpotCount } from "./widgets/spotCountWidget";
 import { Algorithm } from "./widgets/algorithmWidget";
 
 export const Toolbar = () => {
@@ -9,8 +8,7 @@ export const Toolbar = () => {
       <div className="flex gap-1.5">
 
         <Algorithm />
-        {/* <RadioAlgorithms /> */}
-        <RadioSpotCount />
+        <SpotCount />
 
       </div>
       <InputColorText />

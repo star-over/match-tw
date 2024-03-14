@@ -1,13 +1,13 @@
 'use client';
 
-import { RadicalIcon } from "lucide-react";
-import { algorithmVariants } from "@/lib/colorUtil";
+import { LayersIcon } from "lucide-react";
+import { spotCountsVariants } from "@/lib/colorUtil";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useSearchParamsState } from "@/lib/searchParamsState";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
-export function Algorithm() {
-  const [value, setValue] = useSearchParamsState("algorithm");
+export function SpotCount() {
+  const [value, setValue] = useSearchParamsState("spotCount");
 
   return (
     <div
@@ -17,10 +17,10 @@ export function Algorithm() {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>
-            <RadicalIcon className="size-5 text-gray-400 m-1.5" aria-hidden="true" />
+            <LayersIcon className="size-5 text-gray-400 m-1.5" aria-hidden="true" />
           </TooltipTrigger>
           <TooltipContent>
-            <p>Choose an algorithm to calculate the delta E</p>
+            <p>Select number of suggested colors</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
@@ -31,7 +31,7 @@ export function Algorithm() {
         value={value}
         onValueChange={setValue}
       >
-        {algorithmVariants.map((variant) => (
+        {spotCountsVariants.map((variant) => (
           <ToggleGroupItem key={variant} value={variant} aria-label={variant}>
             {variant}
           </ToggleGroupItem>
