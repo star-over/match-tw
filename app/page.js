@@ -4,6 +4,15 @@ import { Suspense } from "react";
 import { getServerSearchParamsState } from "../lib/searchParamsState";
 import ColorSpotList from "../components/ColorSpotList";
 
+export const metadata = {
+  title: "Find a closest tailwind color",
+  description: "Closest color to tailwind CSS palette",
+  verification: {
+    google: '-sOdF1gPYCr2Bp9yRF2mh-XlhKi7-n0V8h_OeHR8810',
+  }
+}
+
+
 // export const dynamic = 'force-dynamic';
 
 export default function Home({ searchParams }) {
