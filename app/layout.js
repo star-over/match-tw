@@ -9,12 +9,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-E7DF1SB3B4"></Script>
-      <Script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-E7DF1SB3B4');
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-E7DF1SB3B4"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E7DF1SB3B4');
+        `}
       </Script>
       <body>{children}</body>
     </html>
