@@ -22,7 +22,7 @@ export function AlgorithmWidget({ className }) {
         {icon}
         {value}
       </DropdownComponent>
-      
+
       <ToggleComponent
         className={cn("max-sm:hidden", className)}
         variants={algorithmVariants}
