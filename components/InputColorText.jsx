@@ -32,6 +32,7 @@ export const InputColorText = () => {
           id="colorText"
           name="colorText"
           type="text"
+          size="5"
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"

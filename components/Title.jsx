@@ -5,7 +5,7 @@ export const Title = () => (
   <div >
     <h1 className="sr-only">Tailwind colors matching</h1>
     <Image
-      className="mt-12 mb-4 mx-auto container"
+      className="mt-12 mb-4"
       src={logoImage}
       alt="logo sign"
       placeholder="empty"

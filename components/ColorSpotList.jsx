@@ -33,7 +33,7 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
 
   return (
     <div
-      className="grid grid-cols-1 min-w-max gap-6 px-4 py-8 mt-6
+      className="grid grid-cols-1 min-w-full gap-6 px-2 py-8 mt-6
       transition-all delay-75 duration-700
       sm:grid-cols-3 sm:rounded-lg sm:gap-x-6 sm:py-8 shadow-lg"
 

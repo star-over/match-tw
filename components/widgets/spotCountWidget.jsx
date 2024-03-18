@@ -14,7 +14,7 @@ export function SpotCountWidget({ className }) {
   return (
     <>
       <DropdownComponent
-        className={cn("md:hidden", className)}
+        className={cn("sm:hidden", className)}
         variants={spotCountsVariants}
         value={value}
         setValue={setValue}
@@ -24,7 +24,7 @@ export function SpotCountWidget({ className }) {
       </DropdownComponent>
 
       <ToggleComponent
-        className={cn("max-md:hidden", className)}
+        className={cn("max-sm:hidden", className)}
         variants={spotCountsVariants}
         value={value}
         setValue={setValue}

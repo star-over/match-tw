@@ -14,7 +14,7 @@ export function AlgorithmWidget({ className }) {
   return (
     <>
       <DropdownComponent
-        className={cn("sm:hidden", className)}
+        className={cn("md:hidden", className)}
         variants={algorithmVariants}
         value={value}
         setValue={setValue}
@@ -24,7 +24,7 @@ export function AlgorithmWidget({ className }) {
       </DropdownComponent>
 
       <ToggleComponent
-        className={cn("max-sm:hidden", className)}
+        className={cn("max-md:hidden", className)}
         variants={algorithmVariants}
         value={value}
         setValue={setValue}

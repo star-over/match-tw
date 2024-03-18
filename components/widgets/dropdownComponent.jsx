@@ -14,7 +14,7 @@ export function DropdownComponent({ children, className, variants, value, setVal
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className={cn("min-w-28 pl-0 pr-1 justify-between	", className)} variant="outline">
+        <Button className={cn("min-w-28 pl-0 pr-1 justify-between	text-gray-500", className)} variant="outline">
           <div className="flex items-center justify-start">
             {children}
           </div>
