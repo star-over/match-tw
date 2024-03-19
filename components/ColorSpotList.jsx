@@ -22,7 +22,7 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
   const currentColorVariants = textColors.map((textColor, i) => (
     <React.Fragment key={i}>
       <span
-        className="mx-4 px-4 py-1"
+        className="py-1"
         style={getContrastStyle(textColor)}
       >
         {textColor}
@@ -33,31 +33,36 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
 
   return (
     <div
-      className="grid grid-cols-1 min-w-full gap-6 px-2 py-8 mt-6
-      transition-all delay-75 duration-700
-      sm:grid-cols-3 sm:rounded-lg sm:gap-x-6 sm:py-8 shadow-lg"
+      className=" min-w-full  mt-2 lg:mt-8
+      transition-all  duration-300
+       rounded-lg sm:p-2 md:p-4 lg:p-10 shadow-lg"
 
       // todo: add fallback here, if color is incorrect
       style={getContrastStyle(textColors.at(0))}
     >
       <div className="mx-auto max-w-xl min-w-min col-span-full">
-        <div className="bg-gray-200 px-4 pt-6 pb-2 rounded-lg shadow-lg">
+        <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
           {/* --- Toolbar --- */}
           <div className="flex gap-1.5">
             <AlgorithmWidget />
             <SpotCountWidget />
           </div>
           <InputColorText />
-
         </div>
+
         <div className="pt-4 font-mono text-xs sm:text-sm">
           <p className="text-center">
             <span >current color variants: </span><br />
             {currentColorVariants}
           </p>
         </div>
+
       </div>
-      {colorSpots}
+      <div className="grid grid-cols-1 max-w-sm mt-4 px-4 sm:max-w-3xl mx-auto gap-4
+        sm:grid-cols-3 lg:gap-8
+        transition-all duration-300">
+        {colorSpots}
+      </div>
     </div>
   );
 }
