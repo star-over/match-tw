@@ -1,19 +1,23 @@
 import { getContrastStyle } from "@/lib/colorUtil";
+import { CopyButton } from "./copyButton";
 
-export const ColorSpot = (props) => {
-  const { colorName, colorHex, dE} = props;
+export function ColorSpot({ colorName, colorHex, dE }) {
 
-  // todo: make it with a clipboard copy feature
   return (
     <div
-      className="text-md font-mono text-center rounded-xl h-32
+      className="text-md text-center rounded-xl h-32
       flex flex-col justify-center items-center transition-all
-      delay-100 duration-300 hover:scale-110"
-      style={ getContrastStyle(colorHex) }
+      delay-100 duration-300"
+      style={getContrastStyle(colorHex)}
     >
-      <div>{ dE.toFixed(2) }</div>
-      <div>{ colorName }</div>
-      <div>{ colorHex }</div>
+
+      <CopyButton text={colorName}></CopyButton>
+      <CopyButton text={colorHex}></CopyButton>
+      <div>
+        <span className="text-xs">dE:&nbsp;</span>
+        <span className="text-sm">{dE.toFixed(2)}</span>
+      </div>
+
     </div>
-  )
-};
+  );
+}
