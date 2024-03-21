@@ -24,7 +24,7 @@ export default function Home({ searchParams }) {
   console.log("🚀 > Home > searchParams:", targetTextColor, algorithm, spotCount);
   return (
     <>
-      <div className="container min-w-min pb-32 px-0 sm:px-4">
+      <div className="container min-w-min px-0 sm:px-4">
 
         <Title />
         <Suspense
