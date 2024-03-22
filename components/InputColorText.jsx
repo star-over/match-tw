@@ -1,27 +1,32 @@
 'use client';
 
-import clsx from "clsx";
 import { useState } from "react";
 import { useSearchParamsState } from "../lib/searchParamsState";
 import { validateColor } from "../lib/colorUtil";
 import { Button } from "./ui/button";
 import { KbdEnter } from "./ui/kbd";
 import { Input } from "./ui/input";
-import { InputIcon } from "./ui/input-icon";
+import { InputIcon } from "./widgets/input-icon";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export const InputColorText = () => {
+export function InputColorText() {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
   const [inputValue, setInputValue] = useState(targetTextColor);
   const [isValid, setIsValid] = useState(true);
 
-  const matchColorAction = (value) => {
+  const sample1 = <strong><Link className="underline" href={{ pathname: "/", query: { c: "skyblue" } }} scroll={false}>skyblue</Link></strong>;
+  const sample2 = <strong><Link className="underline" href={{ pathname: "/", query: { c: "#748af9" } }} scroll={false}>#748af9</Link></strong>;
+  const sample3 = <strong><Link className="underline" href={{ pathname: "/", query: { c: "rgb(173, 250, 77)" } }} scroll={false}>rgb(173,&nbsp;250,&nbsp;77)</Link></strong>;
+
+
+  function matchColorAction(value) {
     const validStatus = Boolean(validateColor(value));
     setIsValid(validStatus);
     if (validStatus) {
       setTargetTextColor(String(value).toLowerCase().replaceAll("none", "0"));
     }
-  };
+  }
 
   return (
     <div className="flex flex-col">
@@ -51,19 +56,21 @@ export const InputColorText = () => {
           Go! <KbdEnter />
         </Button>
       </div>
+      {/* todo: make it with save state: algo and spot count */}
       <p
-        className={clsx("m-2 text-sm transition duration-500 text-balance", {
-          "text-gray-600": isValid,
-          "text-red-600": !isValid,
-        })}>
-
+        className={cn(
+          "m-2 text-sm text-balance",
+          {
+            "text-gray-600": isValid,
+            "text-red-600": !isValid,
+          })
+        }
+      >
         The color can be specified as a word such as&nbsp;
-        <strong><Link className="hover:underline" href={{ pathname: "/", query: { c: "skyblue" } }} scroll={false}>skyblue</Link></strong>
-        , or in hex&nbsp;
-        <strong><Link className="hover:underline" href={{ pathname: "/", query: { c: "#748af9" } }} scroll={false}>#748af9</Link></strong>
-        &#160;format, or&nbsp;in&nbsp;CSS format&#160;
-        <strong><Link className="hover:underline" href={{ pathname: "/", query: { c: "rgb(173, 250, 77)" } }} scroll={false}>rgb(173,&nbsp;250,&nbsp;77)</Link></strong>
+        {sample1}, or in hex&nbsp;
+        {sample2}&#160;format, or in CSS format&#160;
+        {sample3}
       </p>
     </div>
   );
-};
+}
