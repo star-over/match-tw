@@ -1,7 +1,13 @@
-'use client'
+'use client';
 
 import { CopyIcon } from "lucide-react";
 import { Button } from "./ui/button";
+
+function copyHandle({ target }) {
+  const { value } = target.dataset;
+  console.log(value);
+  navigator.clipboard.writeText(value);
+}
 
 export function CopyButton({ text }) {
   return (
@@ -16,11 +22,4 @@ export function CopyButton({ text }) {
         className="size-4 invisible group-hover:visible"
         data-value={text} />
     </Button>);
-}
-
-
-function copyHandle({ target }) {
-  const { value } = target.dataset;
-  console.log(value);
-  navigator.clipboard.writeText(value);
 }
