@@ -2,17 +2,26 @@
 
 import { CopyIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
 
-function copyHandle({ target }) {
-  const { value } = target.dataset;
-  console.log(value);
-  navigator.clipboard.writeText(value);
-}
 
 export function CopyButton({ text }) {
+  const { toast } = useToast();
+
+  function copyHandle({ target }) {
+    const { value } = target.dataset;
+    console.log(value);
+    navigator.clipboard.writeText(value);
+
+    toast({
+      description: <span>Value&nbsp;<strong>{value}</strong>&nbsp;is copied to clipboard</span>,
+      duration: 3000,
+    })
+  }
+
   return (
     <Button
-      className="flex items-center group ml-6 text-lg font-mono "
+      className="flex items-center group ml-6 text-lg font-mono hover:scale-105"
       variant="ghost"
       size="xs"
       data-value={text}

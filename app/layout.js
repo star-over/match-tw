@@ -1,5 +1,6 @@
 import Script from "next/script";
 import '../styles/globals.css';
+import { Toaster } from "@/components/ui/toaster";
 
 
 export default function RootLayout({
@@ -21,7 +22,10 @@ export default function RootLayout({
           gtag('config', 'G-E7DF1SB3B4');
         `}
       </Script>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
