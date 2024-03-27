@@ -1,7 +1,15 @@
 {
   "name": "Tailwind matching colors",
   "short_name": "Match TW",
+  "start_url": "/",
+  "description": "Closest color to tailwind CSS palette",
+
   "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
     {
       "src": "/favicon/android-chrome-192x192.png",
       "sizes": "192x192",
@@ -13,7 +21,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#fff",
+  "background_color": "#fff",
   "display": "standalone"
 }

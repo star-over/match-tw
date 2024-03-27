@@ -4,6 +4,8 @@ import React from "react";
 import { AlgorithmWidget } from "@/components/widgets/algorithmWidget";
 import { SpotCountWidget } from "@/components/widgets/spotCountWidget";
 import { InputColorText } from "@/components/widgets/InputColorText";
+import { Badge } from "../ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 
 export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
   // todo: validate is color correct
@@ -21,13 +23,10 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
   // todo: make it as chip (tag) with copy featute
   const currentColorVariants = textColors.map((textColor, i) => (
     <React.Fragment key={i}>
-      <span
-        className="py-1"
-        style={getContrastStyle(textColor)}
-      >
+      <Badge
+        style={getContrastStyle(textColor)}>
         {textColor}
-      </span>
-      <br />
+      </Badge>
     </React.Fragment>
   ));
 
@@ -50,11 +49,21 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
           <InputColorText />
         </div>
 
-        <div className="px-4 font-mono text-xs sm:text-sm">
-          <p className="text-center">
-            <span >current color variants: </span><br />
-            {currentColorVariants}
-          </p>
+        <div className="px-4 sm:text-sm">
+          <div className="text-center mt-2">
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Current color variants</AccordionTrigger>
+                <AccordionContent>
+                  {currentColorVariants}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+
+            {/* <span className="text-xl" >current color variants: </span><br /> */}
+
+          </div>
         </div>
 
       </div>

@@ -15,9 +15,26 @@ export function InputColorText() {
   const [inputValue, setInputValue] = useState(targetTextColor);
   const [isValid, setIsValid] = useState(true);
 
-  const sample1 = <strong><Link className="underline" href={{ pathname: "/", query: { c: "skyblue" } }} scroll={false}>skyblue</Link></strong>;
-  const sample2 = <strong><Link className="underline" href={{ pathname: "/", query: { c: "#748af9" } }} scroll={false}>#748af9</Link></strong>;
-  const sample3 = <strong><Link className="underline" href={{ pathname: "/", query: { c: "rgb(173, 250, 77)" } }} scroll={false}>rgb(173,&nbsp;250,&nbsp;77)</Link></strong>;
+  // todo: make it with save state: algo and spot count
+  const makeColorLink = (targetColor) => (
+    <strong>
+      <Link
+        className="underline"
+        href={
+          {
+            pathname: "/",
+            query: { c: targetColor }
+          }}
+        scroll={false}>
+        {targetColor}
+      </Link>
+    </strong>
+  );
+
+  const sample1 = makeColorLink("tan");
+  const sample2 = makeColorLink("#748af9");
+  const sample3 = makeColorLink("rgb(173, 250, 77)");
+  const sample4 = makeColorLink("color(display-p3 1 0 0.4)");
 
 
   function matchColorAction(value) {
@@ -56,7 +73,6 @@ export function InputColorText() {
           Go! <KbdEnter />
         </Button>
       </div>
-      {/* todo: make it with save state: algo and spot count */}
       <p
         className={cn(
           "m-2 text-sm text-balance",
@@ -69,7 +85,7 @@ export function InputColorText() {
         The color can be specified as a word such as&nbsp;
         {sample1}, or in hex&nbsp;
         {sample2}&#160;format, or in CSS format&#160;
-        {sample3}
+        {sample3} or in new format {sample4}
       </p>
     </div>
   );

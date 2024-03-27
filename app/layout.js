@@ -22,6 +22,15 @@ export default function RootLayout({
           gtag('config', 'G-E7DF1SB3B4');
         `}
       </Script>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="128x128" href="/favicon/favicon-128x128.png" />
+        <link rel="icon" type="image/png" sizes="196x196" href="/favicon/favicon-196x196.png" />
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+      </head>
       <body>
         {children}
         <Toaster />
