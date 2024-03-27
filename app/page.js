@@ -9,6 +9,7 @@ export const metadata = {
   description: "Closest color to tailwind CSS palette",
   verification: {
     google: '-sOdF1gPYCr2Bp9yRF2mh-XlhKi7-n0V8h_OeHR8810',
+    yandex: "efb6a2518b4b8f75",
   }
 }
 
