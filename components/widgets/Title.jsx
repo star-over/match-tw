@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logoImage from "../public/logo/main_logo.png";
+import logoImage from "@/public/logo/main_logo.png";
 
 export function Title() {
   return (

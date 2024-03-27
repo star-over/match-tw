@@ -1,8 +1,8 @@
 'use client';
 
 import { CopyIcon } from "lucide-react";
-import { Button } from "./ui/button";
-import { useToast } from "./ui/use-toast";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 
 export function CopyButton({ text }) {

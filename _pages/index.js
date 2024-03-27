@@ -1,6 +1,6 @@
-import { Title } from "../components/Title";
-import { Breakpoints } from "../components/Breakpoints";
-import { ColorSpotList } from "../components/ColorSpotList";
+import { Title } from "../components/widgets/Title";
+import { Breakpoints } from "../components/widgets/Breakpoints";
+import { ColorSpotList } from "../components/widgets/ColorSpotList";
 
 export default function Home() {
   return (

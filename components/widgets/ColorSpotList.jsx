@@ -1,9 +1,9 @@
-import { getContrastStyle, getColorTexts, getMatchColors, textToColor } from "../lib/colorUtil";
-import { ColorSpot } from "./ColorSpot";
+import { getContrastStyle, getColorTexts, getMatchColors, textToColor } from "@/lib/colorUtil";
+import { ColorSpot } from "@/components/widgets/ColorSpot";
 import React from "react";
-import { AlgorithmWidget } from "./widgets/algorithmWidget";
-import { SpotCountWidget } from "./widgets/spotCountWidget";
-import { InputColorText } from "./InputColorText";
+import { AlgorithmWidget } from "@/components/widgets/algorithmWidget";
+import { SpotCountWidget } from "@/components/widgets/spotCountWidget";
+import { InputColorText } from "@/components/widgets/InputColorText";
 
 export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
   // todo: validate is color correct

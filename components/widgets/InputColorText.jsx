@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from "react";
-import { useSearchParamsState } from "../lib/searchParamsState";
-import { validateColor } from "../lib/colorUtil";
-import { Button } from "./ui/button";
-import { KbdEnter } from "./ui/kbd";
-import { Input } from "./ui/input";
-import { InputIcon } from "./widgets/input-icon";
+import { useSearchParamsState } from "@/lib/searchParamsState";
+import { validateColor } from "@/lib/colorUtil";
+import { Button } from "@/components/ui/button";
+import { KbdEnter } from "@/components/ui/kbd";
+import { Input } from "@/components/ui/input";
+import { InputIcon } from "@/components/widgets/inputIcon";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 

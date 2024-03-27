@@ -6,7 +6,7 @@ import {
   DropdownMenuRadioItem, DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { Separator } from "../ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { ChevronDownIcon } from "lucide-react";
 
 export function DropdownComponent({ children, className, variants, value, setValue }) {

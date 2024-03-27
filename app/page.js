@@ -1,8 +1,8 @@
-import { Title } from "../components/Title";
-import { Breakpoints } from "../components/Breakpoints";
+import { Title } from "../components/widgets/Title";
+import { Breakpoints } from "../components/widgets/Breakpoints";
 import { Suspense } from "react";
 import { getServerSearchParamsState } from "../lib/searchParamsState";
-import ColorSpotList from "../components/ColorSpotList";
+import ColorSpotList from "../components/widgets/ColorSpotList";
 
 export const metadata = {
   title: "Find a closest tailwind color",
