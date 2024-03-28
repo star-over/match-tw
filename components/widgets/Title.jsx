@@ -13,7 +13,7 @@ export function Title() {
       />
 
       <h2
-        className="text-xs sm:text-sm px-4 mx-auto max-w-4xl text-center mt-4 text-balance">
+        className="text px-4 mx-auto max-w-4xl text-center mt-4 text-balance">
         Tailwind Colour Matching is a web-based tool that can help you find the closest color from the&nbsp;
         <Link
           className="underline"

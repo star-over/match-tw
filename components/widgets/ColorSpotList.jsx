@@ -20,7 +20,6 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
       colorHex={colorHex}
     />));
 
-  // todo: make it as chip (tag) with copy featute
   const currentColorVariants = textColors.map((textColor, i) => (
     <React.Fragment key={i}>
       <Badge
@@ -49,21 +48,15 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
           <InputColorText />
         </div>
 
-        <div className="px-4 sm:text-sm">
-          <div className="text-center mt-2">
-            <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Current color variants</AccordionTrigger>
-                <AccordionContent>
-                  {currentColorVariants}
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-
-
-            {/* <span className="text-xl" >current color variants: </span><br /> */}
-
-          </div>
+        <div className="text-center mt-2 px-4 sm:text-sm">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Current color variants</AccordionTrigger>
+              <AccordionContent>
+                {currentColorVariants}
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
 
       </div>

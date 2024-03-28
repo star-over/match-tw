@@ -22,7 +22,7 @@ export function Footer() {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <BinaryIcon className="size-5" />&nbsp;Core Lib - "colorjs.io"
+        <BinaryIcon className="size-5" />&nbsp;Core lib - colorjs.io
       </Link>
 
       {/* Telegram */}
