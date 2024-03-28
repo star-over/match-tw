@@ -1,8 +1,8 @@
-import { Title } from "../components/widgets/Title";
-import { Breakpoints } from "../components/widgets/Breakpoints";
+import { Title } from "@/components/widgets/Title";
+import { Breakpoints } from "@/components/widgets/Breakpoints";
 import { Suspense } from "react";
-import { getServerSearchParamsState } from "../lib/searchParamsState";
-import ColorSpotList from "../components/widgets/ColorSpotList";
+import { getServerSearchParamsState } from "@/lib/searchParamsState";
+import ColorSpotList from "@/components/widgets/ColorSpotList";
 
 export const metadata = {
   title: "Find a closest tailwind color",
@@ -12,9 +12,6 @@ export const metadata = {
     yandex: "efb6a2518b4b8f75",
   }
 }
-
-
-// export const dynamic = 'force-dynamic';
 
 export default function Home({ searchParams }) {
   const targetTextColor = getServerSearchParamsState("targetTextColor", searchParams);

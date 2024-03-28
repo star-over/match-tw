@@ -4,7 +4,7 @@ import React from "react";
 import { AlgorithmWidget } from "@/components/widgets/algorithmWidget";
 import { SpotCountWidget } from "@/components/widgets/spotCountWidget";
 import { InputColorText } from "@/components/widgets/InputColorText";
-import { Badge } from "../ui/badge";
+import { Badge } from "@/components//ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 
 export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {

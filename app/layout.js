@@ -1,6 +1,7 @@
 import Script from "next/script";
 import '../styles/globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import { Footer } from "@/components/widgets/footer";
 
 
 export default function RootLayout({
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body>
         {children}
         <Toaster />
+        <Footer />
       </body>
     </html>
   );

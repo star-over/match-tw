@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 export function SpotCountWidget({ className }) {
   const [value, setValue] = useSearchParamsState("spotCount");
-  const icon = <LayersIcon className="size-5 text-gray-400 m-1.5 mr-3" aria-hidden="true" />
+  const icon = <LayersIcon className="size-5 text-gray-400 m-1.5" aria-hidden="true" />
 
   return (
     <>

@@ -1,11 +1,7 @@
 
 ## Match TW
-Проект по подбору цвета из палитры [tailwind](https://tailwindcss.com/docs/customizing-colors)
 
-Для запуска проекта, надо форкнуть проект склонированить его и запустить:
+Tailwind Colour Matching is a web-based tool that can help you find the closest color from the [tailwind](https://tailwindcss.com/docs/customizing-colors). 
+You can use different algorithms to find the nearest color, and although they may give different results. The best way to determine the closest color is to trust your eyes.
 
-```bash
-npm run dev
-```
-
-Открыть в браузере по ссылке [http://localhost:3000](http://localhost:3000) 
+[Go to Match TW](https://match-tw.vercel.app/)

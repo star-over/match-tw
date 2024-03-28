@@ -6,6 +6,7 @@ import { useSearchParamsState } from "@/lib/searchParamsState";
 import { ToggleComponent } from "./toggleComponent";
 import { DropdownComponent } from "./dropdownComponent";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 export function AlgorithmWidget({ className }) {
   const [value, setValue] = useSearchParamsState("algorithm");

@@ -9,11 +9,13 @@ import { Input } from "@/components/ui/input";
 import { InputIcon } from "@/components/widgets/inputIcon";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Spinner } from "../ui/spinner";
 
 export function InputColorText() {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
   const [inputValue, setInputValue] = useState(targetTextColor);
   const [isValid, setIsValid] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // todo: make it with save state: algo and spot count
   const makeColorLink = (targetColor) => (
@@ -42,13 +44,17 @@ export function InputColorText() {
     setIsValid(validStatus);
     if (validStatus) {
       setTargetTextColor(String(value).toLowerCase().replaceAll("none", "0"));
+      setIsLoading(true);
     }
   }
 
   return (
     <div className="flex flex-col">
       <div className="mt-2 flex items-center rounded-lg border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500">
-        <InputIcon {...{ isValid }} />
+        {isLoading
+          ? <Spinner />
+          : <InputIcon {...{ isValid }} />}
+
         <Input
           className=""
           id="colorText"
