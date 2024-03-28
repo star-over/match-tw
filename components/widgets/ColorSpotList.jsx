@@ -5,7 +5,7 @@ import { AlgorithmWidget } from "@/components/widgets/algorithmWidget";
 import { SpotCountWidget } from "@/components/widgets/spotCountWidget";
 import { InputColorText } from "@/components/widgets/InputColorText";
 import { Badge } from "@/components//ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
   // todo: validate is color correct
