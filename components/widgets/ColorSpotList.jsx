@@ -1,11 +1,11 @@
-import { getContrastStyle, getColorTexts, getMatchColors, textToColor } from "@/lib/colorUtil";
+import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ColorSpot } from "@/components/widgets/ColorSpot";
-import React from "react";
+import { InputColorText } from "@/components/widgets/InputColorText";
 import { AlgorithmWidget } from "@/components/widgets/algorithmWidget";
 import { SpotCountWidget } from "@/components/widgets/spotCountWidget";
-import { InputColorText } from "@/components/widgets/InputColorText";
-import { Badge } from "@/components//ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { getColorTexts, getContrastStyle, getMatchColors, textToColor } from "@/lib/colorUtil";
+import React from "react";
 
 export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
   // todo: validate is color correct
@@ -31,9 +31,8 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
 
   return (
     <div
-      className=" min-w-full  mt-2 lg:mt-8
-      transition-all  duration-300
-       rounded-lg sm:p-2 md:p-4 lg:p-10 shadow-lg"
+      className="min-w-full mt-2 lg:mt-8 transition-all duration-300
+      rounded-lg sm:p-2 md:p-4 lg:p-10 shadow-lg"
 
       // todo: add fallback here, if color is incorrect
       style={getContrastStyle(textColors.at(0))}
@@ -60,9 +59,8 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
         </div>
 
       </div>
-      <div className="grid grid-cols-1 max-w-sm mt-4 px-4 pb-24 sm:max-w-3xl mx-auto gap-4
-        sm:grid-cols-3 lg:gap-8
-        transition-all duration-300">
+      <div className="grid grid-cols-1 max-w-sm mt-4 px-4 pb-24 sm:max-w-3xl mx-auto gap-8
+        sm:grid-cols-3 sm:gap-x-4 md:gap-x-8 transition-all duration-300">
         {colorSpots}
       </div>
     </div>

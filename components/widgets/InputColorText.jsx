@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { InputIcon } from "@/components/widgets/inputIcon";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Spinner } from "../ui/spinner";
+import { Spinner } from "@/components/ui/spinner";
 
 export function InputColorText() {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");

@@ -3,11 +3,11 @@ import { GithubIcon, BinaryIcon, UserIcon } from "lucide-react";
 
 export function Footer() {
   return (
-    <div className="container flex items-center justify-center gap-4 my-10 font-semibold">
+    <div className="container max-md:flex-col md:flex justify-center items-center gap-4 my-10 font-semibold">
 
       {/* GITHUB */}
       <Link
-        className="flex text-gray-500"
+        className="flex text-gray-500 justify-center"
         href="https://github.com/star-over/match-tw"
         rel="noopener noreferrer"
         target="_blank"
@@ -17,7 +17,7 @@ export function Footer() {
 
       {/* Colorjs.io */}
       <Link
-        className="flex text-gray-500"
+        className="flex text-gray-500 justify-center"
         href="https://colorjs.io"
         rel="noopener noreferrer"
         target="_blank"
@@ -27,7 +27,7 @@ export function Footer() {
 
       {/* Telegram */}
       <Link
-        className="flex text-gray-500"
+        className="flex text-gray-500 justify-center"
         href="https://t.me/overstar"
         rel="noopener noreferrer"
         target="_blank"

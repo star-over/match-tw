@@ -5,11 +5,11 @@ import {
   DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup,
   DropdownMenuRadioItem, DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
-import { Spinner } from "../ui/spinner";
+import { Spinner } from "@/components/ui/spinner";
 
 export function DropdownComponent({ children, className, variants, value, setValue }) {
   const [isLoading, setIsLoading] = useState(false);

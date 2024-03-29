@@ -1,9 +1,9 @@
 'use client';
 
+import { Spinner } from "@/components/ui/spinner";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { Spinner } from "../ui/spinner";
 import { useState } from "react";
 
 export function ToggleComponent({ children, className, variants, value, setValue, tootip }) {

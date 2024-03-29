@@ -3,8 +3,8 @@
 import { LayersIcon } from "lucide-react";
 import { spotCountsVariants } from "@/lib/colorUtil";
 import { useSearchParamsState } from "@/lib/searchParamsState";
-import { ToggleComponent } from "./toggleComponent";
-import { DropdownComponent } from "./dropdownComponent";
+import { ToggleComponent } from "@/components/widgets/toggleComponent";
+import { DropdownComponent } from "@/components/widgets/dropdownComponent";
 import { cn } from "@/lib/utils";
 
 export function SpotCountWidget({ className }) {

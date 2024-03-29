@@ -1,6 +1,6 @@
-import Image from "next/image";
 import logoImage from "@/public/logo/main_logo.png";
-import Link from "@/node_modules/next/link";
+import Image from "next/image";
+import Link from "next/link";
 
 export function Title() {
   return (
