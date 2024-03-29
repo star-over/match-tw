@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { KbdEnter } from "@/components/ui/kbd";
 import { Input } from "@/components/ui/input";
 import { InputIcon } from "@/components/widgets/inputIcon";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";
 
@@ -17,33 +16,12 @@ export function InputColorText() {
   const [isValid, setIsValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  // todo: make it with save state: algo and spot count
-  const makeColorLink = (targetColor) => (
-    <strong>
-      <Link
-        className="underline"
-        href={
-          {
-            pathname: "/",
-            query: { c: targetColor }
-          }}
-        scroll={false}>
-        {targetColor}
-      </Link>
-    </strong>
-  );
 
-  const sample1 = makeColorLink("tan");
-  const sample2 = makeColorLink("#748af9");
-  const sample3 = makeColorLink("rgb(173, 250, 77)");
-  const sample4 = makeColorLink("color(display-p3 1 0 0.4)");
-
-
-  function matchColorAction(value) {
-    const validStatus = Boolean(validateColor(value));
-    setIsValid(validStatus);
+  function matchColorAction() {
+    const validStatus = Boolean(validateColor(inputValue));
+    setIsValid(() => validStatus);
     if (validStatus) {
-      setTargetTextColor(String(value).toLowerCase().replaceAll("none", "0"));
+      setTargetTextColor(String(inputValue).toLowerCase().replaceAll("none", "0"));
       setIsLoading(true);
     }
   }
@@ -54,7 +32,6 @@ export function InputColorText() {
         {isLoading
           ? <Spinner />
           : <InputIcon {...{ isValid }} />}
-
         <Input
           className=""
           id="colorText"
@@ -69,29 +46,18 @@ export function InputColorText() {
           aria-label="Search"
           placeholder="CSS4 color..."
           value={inputValue}
-          onKeyUp={(e) => (e.code === "Enter") && matchColorAction(inputValue)}
+          onKeyUp={(e) => (e.code === "Enter") && matchColorAction(e)}
           onChange={(e) => setInputValue(e.target.value)}
         />
         <Button size="sm" className="m-0.5"
           type="submit"
-          onClick={() => matchColorAction(inputValue)}
+          onClick={() => matchColorAction(e)}
         >
           Go! <KbdEnter />
         </Button>
       </div>
-      <p
-        className={cn(
-          "m-2 text-sm text-balance",
-          {
-            "text-gray-600": isValid,
-            "text-red-600": !isValid,
-          })
-        }
-      >
-        The color can be specified as a word such as&nbsp;
-        {sample1}, or in hex&nbsp;
-        {sample2}&#160;format, or in CSS format&#160;
-        {sample3} or in new format {sample4}
+      <p className={cn("m-2 text-sm text-balance text-red-500", { "invisible": isValid, "visible": !isValid, })}>
+        Can't parse color. Please use CSS compatible color.
       </p>
     </div>
   );
