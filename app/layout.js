@@ -2,6 +2,8 @@ import Script from "next/script";
 import '../styles/globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/widgets/footer";
+import { Analytics } from '@vercel/analytics/react';
+
 
 
 export default function RootLayout({
@@ -34,8 +36,9 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <Toaster />
         <Footer />
+        <Toaster />
+        <Analytics />
       </body>
     </html>
   );
