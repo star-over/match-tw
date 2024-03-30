@@ -8,30 +8,35 @@ import { KbdEnter } from "@/components/ui/kbd";
 import { Input } from "@/components/ui/input";
 import { InputIcon } from "@/components/widgets/inputIcon";
 import { cn } from "@/lib/utils";
-import { Spinner } from "@/components/ui/spinner";
 
 export function InputColorText() {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
+  console.log("🚀 > InputColorText > targetTextColor:", targetTextColor);
   const [inputValue, setInputValue] = useState(targetTextColor);
   const [isValid, setIsValid] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
 
-
-  function matchColorAction() {
-    const validStatus = Boolean(validateColor(inputValue));
+  // here is something like a bug, setIsValid did not set value properly
+  function matchColorAction(e) {
+    console.log("🚀 > matchColorAction > e:", e);
+    const validStatus = validateColor(inputValue);
     setIsValid(() => validStatus);
     if (validStatus) {
-      setTargetTextColor(String(inputValue).toLowerCase().replaceAll("none", "0"));
-      setIsLoading(true);
+      setTargetTextColor(String(inputValue)
+        .toLowerCase()
+        // for the hsl gray color problem
+        .replaceAll("none", "0"));
     }
   }
 
   return (
     <div className="flex flex-col">
-      <div className="mt-2 flex items-center rounded-lg border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500">
-        {isLoading
-          ? <Spinner />
-          : <InputIcon {...{ isValid }} />}
+      <div className={cn(
+        "mt-2 flex items-center rounded-lg",
+        " border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500",
+        { "focus-within:border-red-500": !isValid }
+      )}>
+
+        {<InputIcon {...{ isValid }} />}
         <Input
           className=""
           id="colorText"
@@ -51,12 +56,12 @@ export function InputColorText() {
         />
         <Button size="sm" className="m-0.5"
           type="submit"
-          onClick={() => matchColorAction(e)}
+          onClick={(e) => matchColorAction(e)}
         >
           Go! <KbdEnter />
         </Button>
       </div>
-      <p className={cn("m-2 text-sm text-balance text-red-500", { "invisible": isValid, "visible": !isValid, })}>
+      <p className={cn("m-2 text-sm text-balance text-red-500", { "hidden": isValid })}>
         Can't parse color. Please use CSS compatible color.
       </p>
     </div>

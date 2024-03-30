@@ -1,30 +1,20 @@
 'use client';
 
-import { Spinner } from "@/components/ui/spinner";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
 export function ToggleComponent({ children, className, variants, value, setValue, tootip }) {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSetValue = (value) => {
-    setIsLoading(true);
-    setValue(value);
-  }
 
   return (
-    <div
-      className={cn(
+    <div className={cn(
         "inline-flex p-0.5 items-center rounded-md shadow-sm border border-gray-300 bg-gray-100",
-        className)}
-    >
+        className)}>
 
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>
-            {isLoading ? <Spinner /> : children}
+            {children}
           </TooltipTrigger>
           <TooltipContent>
             <p>{tootip}</p>
@@ -36,7 +26,7 @@ export function ToggleComponent({ children, className, variants, value, setValue
       <ToggleGroup
         type="single"
         value={value}
-        onValueChange={handleSetValue}
+        onValueChange={setValue}
       >
         {variants.map((variant) => (
           <ToggleGroupItem key={variant} value={variant} aria-label={variant}>
