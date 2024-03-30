@@ -5,7 +5,7 @@ import Link from "next/link";
 export function Title() {
   return (
     <div className="container mt-8">
-      <h1 className="sr-only">Tailwind colors matching</h1>
+      <h1 className="sr-only">Find closest tailwind color</h1>
       <Image
         src={logoImage}
         alt="logo sign"

@@ -7,7 +7,7 @@ export function ColorSpot({ colorName, colorHex, dE }) {
   const deFixed = dE.toFixed(2);
 
   return (
-    <div
+    <li
       className={cn(
         "text-md text-center rounded-xl h-32",
         "flex flex-col justify-center items-center transition-all",
@@ -24,6 +24,6 @@ export function ColorSpot({ colorName, colorHex, dE }) {
         <span className="text-sm">{deFixed}</span>
       </div>
 
-    </div>
+    </li>
   );
 }

@@ -88,10 +88,10 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
         </div>
 
       </div>
-      <span className="grid grid-cols-1 max-w-sm mt-4 px-4 pb-24 sm:max-w-3xl mx-auto gap-8
+      <ul className="grid grid-cols-1 max-w-sm mt-4 px-4 pb-24 sm:max-w-3xl mx-auto gap-8
         sm:grid-cols-3 sm:gap-x-4 md:gap-x-8 transition-all duration-300">
         {colorSpots}
-      </span>
+      </ul>
     </div>
   );
 }
