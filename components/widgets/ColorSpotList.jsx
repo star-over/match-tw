@@ -1,6 +1,6 @@
 import { getColorTexts, getContrastStyle, textToColor } from "@/lib/colorUtil";
 import React, { Suspense } from "react";
-import { SuggestedColors } from "@/components/widgets/suggestedColors";
+import { SuggestedColors, SuggestedColorsSkeleton } from "@/components/widgets/suggestedColors";
 import { CurrentColorVariants } from "@/components/widgets/currentColorVariants";
 
 export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
@@ -20,7 +20,7 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
 
       <Suspense
         key={JSON.stringify({ targetColor, algorithm, spotCount })}
-        fallback={"Loading..."}>
+        fallback={<SuggestedColorsSkeleton {...{ spotCount }} />}>
         <SuggestedColors {...{ targetColor, algorithm, spotCount }} />
       </Suspense>
     </div>
