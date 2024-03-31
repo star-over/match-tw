@@ -18,11 +18,11 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
         <CurrentColorVariants {...{ textColors }} />
       </div>
 
-      {/* <Suspense
+      <Suspense
         key={JSON.stringify({ targetColor, algorithm, spotCount })}
-        fallback={"Loading..."}> */}
+        fallback={"Loading..."}>
         <SuggestedColors {...{ targetColor, algorithm, spotCount }} />
-      {/* </Suspense> */}
+      </Suspense>
     </div>
   );
 }

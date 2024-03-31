@@ -1,11 +1,11 @@
-import { Title } from "@/components/widgets/Title";
 import { Breakpoints } from "@/components/widgets/Breakpoints";
-import { Suspense } from "react";
-import { getServerSearchParamsState } from "@/lib/searchParamsState";
 import ColorSpotList from "@/components/widgets/ColorSpotList";
+import { Title } from "@/components/widgets/Title";
 import { ColorForm } from "@/components/widgets/colorForm";
+import { getServerSearchParamsState } from "@/lib/searchParamsState";
 
-export const dynamic = 'force-dynamic'
+// ---------  next js config
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: "Find a closest tailwind color",
@@ -27,12 +27,8 @@ export default async function Home({ searchParams }) {
     <>
       <div className="container min-w-min px-0 sm:px-4">
         <Title />
-        <Suspense
-          key={JSON.stringify(searchParams)}
-          fallback={"Loading..."}>
-          <ColorForm />
-          <ColorSpotList  {...{ targetTextColor, algorithm, spotCount }} />
-        </Suspense>
+        <ColorForm />
+        <ColorSpotList  {...{ targetTextColor, algorithm, spotCount }} />
       </div>
       <Breakpoints />
     </>

@@ -9,6 +9,8 @@ export function Title() {
       <Image
         src={logoImage}
         alt="logo sign"
+        priority={true}
+        quality={75}
         placeholder="empty"
       />
 

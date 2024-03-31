@@ -1,7 +1,8 @@
-import { getMatchColors } from "@/lib/colorUtil";
 import { ColorSpot } from "@/components/widgets/ColorSpot";
+import { getMatchColors } from "@/lib/colorUtil";
 
 export async function SuggestedColors({ targetColor, algorithm, spotCount }) {
+  // -------- delay ------------
   // await new Promise((resolve) => setTimeout(resolve, 3000))
   const matchColors = await getMatchColors(targetColor, algorithm, spotCount);
   const colorSpots = matchColors.map(({ colorHex, colorName, dE }) => (
