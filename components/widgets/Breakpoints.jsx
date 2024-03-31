@@ -1,5 +1,5 @@
 export function Breakpoints() {
-  const isDevEnv = process?.env?.NODE_ENV === 'development';
+  const isDevEnv = process?.env?.NODE_ENV === "development";
   if (isDevEnv === false) return;
 
   return (

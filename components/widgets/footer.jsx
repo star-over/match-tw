@@ -12,7 +12,8 @@ export function Footer() {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <GithubIcon className="size-5" />&nbsp;Repository
+        <GithubIcon className="size-5" />
+        &nbsp;Repository
       </Link>
 
       {/* Colorjs.io */}
@@ -22,7 +23,8 @@ export function Footer() {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <BinaryIcon className="size-5" />&nbsp;Core lib - colorjs.io
+        <BinaryIcon className="size-5" />
+        &nbsp;Core lib - colorjs.io
       </Link>
 
       {/* Telegram */}
@@ -32,7 +34,8 @@ export function Footer() {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <UserIcon className="size-5" />&nbsp;Contact
+        <UserIcon className="size-5" />
+        &nbsp;Contact
       </Link>
     </div>
   );

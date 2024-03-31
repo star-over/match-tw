@@ -1,8 +1,7 @@
-import { cn } from "@/lib/utils";
 import { CircleAlertIcon, SwatchBookIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function InputIcon({ isValid = true, className, ...props }) {
-
   return (
     <div
       className={cn("m-1 pointer-events-none size-6 flex items-center justify-center", className)}

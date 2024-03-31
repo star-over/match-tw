@@ -14,7 +14,8 @@ export async function SuggestedColors({ targetColor, algorithm, spotCount }) {
       dE={dE}
       colorName={colorName}
       colorHex={colorHex}
-    />));
+    />
+  ));
 
   return (
     <ul className={commonStyle}>

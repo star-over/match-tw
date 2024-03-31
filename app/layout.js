@@ -1,12 +1,9 @@
 import Script from "next/script";
-import '../styles/globals.css';
+import "../styles/globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/widgets/footer";
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-
-
-
 
 export default function RootLayout({
   // Layouts must accept a children prop.

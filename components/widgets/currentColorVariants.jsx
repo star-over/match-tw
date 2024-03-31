@@ -1,15 +1,16 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import React from "react";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { getContrastStyle } from "@/lib/colorUtil";
-import React from "react";
-
 
 export async function CurrentColorVariants({ textColors }) {
-
   const currentColorVariants = textColors.map((textColor, i) => (
     <React.Fragment key={i}>
       <Badge
-        style={getContrastStyle(textColor)}>
+        style={getContrastStyle(textColor)}
+      >
         {textColor}
       </Badge>
     </React.Fragment>

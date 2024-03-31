@@ -1,20 +1,21 @@
-'use client';
+"use client";
 
+import { ChevronDownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup,
-  DropdownMenuRadioItem, DropdownMenuTrigger
+  DropdownMenuRadioItem, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { ChevronDownIcon } from "lucide-react";
 
-export function DropdownComponent({ children, className, variants, value, setValue }) {
-
+export function DropdownComponent({
+  children, className, variants, value, setValue,
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className={cn("min-w-28 pl-0 pr-1 justify-between	text-gray-500", className)} variant="outline">
+        <Button className={cn("min-w-28 pl-0 pr-1 justify-between text-gray-500", className)} variant="outline">
           <div className="flex items-center justify-start">
             {children}
           </div>

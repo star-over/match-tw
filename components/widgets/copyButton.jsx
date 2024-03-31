@@ -1,22 +1,25 @@
-'use client';
+"use client";
 
+import { CopyIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { CopyIcon } from "lucide-react";
-
 
 export function CopyButton({ text }) {
   const { toast } = useToast();
 
   function copyHandle({ target }) {
     const { value } = target.dataset;
-    console.log(value);
     navigator.clipboard.writeText(value);
 
     toast({
-      description: <span>Value&nbsp;<strong>{value}</strong>&nbsp;is copied to clipboard</span>,
+      description: (
+        <span>
+          Value&nbsp;
+          <strong>{value}</strong>
+          &nbsp;is copied to clipboard
+        </span>),
       duration: 3000,
-    })
+    });
   }
 
   return (
@@ -25,10 +28,14 @@ export function CopyButton({ text }) {
       variant="ghost"
       size="xs"
       data-value={text}
-      onClick={copyHandle}>
-      {text}&nbsp;
+      onClick={copyHandle}
+    >
+      {text}
+      &nbsp;
       <CopyIcon
         className="size-4 invisible group-hover:visible"
-        data-value={text} />
-    </Button>);
+        data-value={text}
+      />
+    </Button>
+  );
 }

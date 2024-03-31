@@ -1,15 +1,20 @@
-'use client';
+"use client";
 
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip, TooltipContent, TooltipProvider, TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
-export function ToggleComponent({ children, className, variants, value, setValue, tootip }) {
-
+export function ToggleComponent({
+  children, className, variants, value, setValue, tootip,
+}) {
   return (
     <div className={cn(
-        "inline-flex p-0.5 items-center rounded-md shadow-sm border border-gray-300 bg-gray-100",
-        className)}>
+      "inline-flex p-0.5 items-center rounded-md shadow-sm border border-gray-300 bg-gray-100",
+      className,
+    )}
+    >
 
       <TooltipProvider>
         <Tooltip>
@@ -21,7 +26,6 @@ export function ToggleComponent({ children, className, variants, value, setValue
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-
 
       <ToggleGroup
         type="single"

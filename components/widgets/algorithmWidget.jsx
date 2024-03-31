@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
+import { RadicalIcon } from "lucide-react";
 import { algorithmVariants } from "@/lib/colorUtil";
 import { useSearchParamsState } from "@/lib/searchParamsState";
 import { cn } from "@/lib/utils";
-import { RadicalIcon } from "lucide-react";
 import { DropdownComponent } from "./dropdownComponent";
 import { ToggleComponent } from "./toggleComponent";
 
 export function AlgorithmWidget({ className }) {
   const [value, setValue] = useSearchParamsState("algorithm");
-  const icon = <RadicalIcon className="size-5 text-gray-400 m-1.5" aria-hidden="true" />
+  const icon = <RadicalIcon className="size-5 text-gray-400 m-1.5" aria-hidden="true" />;
 
   return (
     <>
@@ -28,7 +28,7 @@ export function AlgorithmWidget({ className }) {
         variants={algorithmVariants}
         value={value}
         setValue={setValue}
-        tootip={"Choose an algorithm to calculate the delta E"}
+        tootip="Choose an algorithm to calculate the delta E"
       >
         {icon}
       </ToggleComponent>

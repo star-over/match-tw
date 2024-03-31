@@ -6,13 +6,16 @@ import { SpotCountWidget } from "./spotCountWidget";
 export function ColorForm() {
   // todo: make it with save state: algo and spot count
   const makeColorLink = (targetColor) => (
-    <Link className="underline"
+    <Link
+      className="underline"
       href={
         {
           pathname: "/",
-          query: { c: targetColor }
-        }}
-      scroll={false}>
+          query: { c: targetColor },
+        }
+      }
+      scroll={false}
+    >
       {targetColor}
     </Link>
   );
@@ -25,11 +28,16 @@ export function ColorForm() {
   return (
     <div className="bg-gray-200 mx-auto max-w-xl min-w-min mt-4 p-4 rounded-lg shadow-lg">
       <h3 className="text-xl mb-2 text-gray-600">Find closest color</h3>
-      <p className="m-2 text-gray-600 text-sm text-balance" >
+      <p className="m-2 text-gray-600 text-sm text-balance">
         The color can be specified as a word such as&nbsp;
-        {sample1}, or in hex&nbsp;
-        {sample2}&#160;format, or in CSS format&#160;
-        {sample3} or in new format {sample4}
+        {sample1}
+        , or in hex&nbsp;
+        {sample2}
+        &#160;format, or in CSS format&#160;
+        {sample3}
+        {" "}
+        or in new format
+        {sample4}
       </p>
 
       {/* --- Toolbar --- */}
