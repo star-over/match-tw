@@ -23,7 +23,7 @@ export function ColorForm() {
   const sample4 = makeColorLink("color(display-p3 1 0 0.4)");
 
   return (
-    <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
+    <div className="bg-gray-200 mx-auto max-w-xl min-w-min mt-4 p-4 rounded-lg shadow-lg">
       <h3 className="text-xl mb-2 text-gray-600">Find closest color</h3>
       <p className="m-2 text-gray-600 text-sm text-balance" >
         The color can be specified as a word such as&nbsp;
