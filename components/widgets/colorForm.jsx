@@ -37,6 +37,7 @@ export function ColorForm() {
         {sample3}
         {" "}
         or in new format
+        {" "}
         {sample4}
       </p>
 
