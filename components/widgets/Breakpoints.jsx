@@ -1,6 +1,6 @@
 export function Breakpoints() {
   const isDevEnv = process?.env?.NODE_ENV === "development";
-  if (isDevEnv === false) return;
+  if (isDevEnv === false) return undefined;
 
   return (
     <div className="fixed text-center bottom-0 left-0 bg-slate-200/50 w-screen">

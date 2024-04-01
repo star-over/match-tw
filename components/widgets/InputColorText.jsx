@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { KbdEnter } from "@/components/ui/kbd";
@@ -11,30 +11,31 @@ import { cn } from "@/lib/utils";
 
 export function InputColorText() {
   const [targetTextColor, setTargetTextColor] = useSearchParamsState("targetTextColor");
+  const [value, setValue] = useState(targetTextColor);
   const [isValid, setIsValid] = useState(true);
 
-  function matchColorAction(e) {
-    e.preventDefault();
+  useEffect(() => {
+    setValue(targetTextColor);
+  }, [targetTextColor]);
 
-    const formData = new FormData(e.target);
-    const formTextColor = formData.get("textColor");
-    const validStatus = validateColor(formTextColor);
+  useEffect(() => {
+    setIsValid(validateColor(value));
+  }, [value]);
 
-    // here is something like a bug, setIsValid did not set value properly
-    setIsValid(validStatus);
-
-    if (validStatus) {
-      setTargetTextColor(String(formTextColor)
+  useEffect(() => {
+    if (isValid) {
+      setTargetTextColor(String(value)
         .toLowerCase()
+        .trim()
         // for fix the hsl gray color problem
         .replaceAll("none", "0"));
     }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isValid]);
 
   return (
     <form
       className="flex flex-col"
-      onSubmit={matchColorAction}
     >
       <div className={cn(
         "mt-2 flex items-center rounded-lg",
@@ -42,13 +43,15 @@ export function InputColorText() {
         { "focus-within:border-red-500": !isValid },
       )}
       >
-
+        {/* todo: make it with spinner */}
         <InputIcon {...{ isValid }} />
         <Input
           required
           id="textColor"
           name="textColor"
-          defaultValue={targetTextColor}
+          // defaultValue={targetTextColor}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
           type="text"
           size="5"
           autoComplete="off"

@@ -27,7 +27,7 @@ export default async function Home({ searchParams }) {
     <>
       <div className="container min-w-min px-0 sm:px-4">
         <Title />
-        <ColorForm />
+        <ColorForm {...{ targetTextColor, algorithm, spotCount }} />
         <ColorSpotList {...{ targetTextColor, algorithm, spotCount }} />
       </div>
       <Breakpoints />
