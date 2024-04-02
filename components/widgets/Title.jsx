@@ -13,10 +13,10 @@ export function Title() {
         quality={75}
         placeholder="empty"
       />
-      <h2
+      <p
         className="text px-4 mx-auto max-w-4xl text-center mt-4 text-balance"
       >
-        {"Tailwind Colour Matching is a web-based tool "}
+        {"Tailwind Color Matching is a web-based tool "}
         {"that can help you find the closest color from the "}
         <Link
           className="underline"
@@ -38,7 +38,7 @@ export function Title() {
         {" to find the nearest color, "}
         {"and although they may give different results. "}
         {"The best way to determine the closest color is to trust your eyes. "}
-      </h2>
+      </p>
     </div>
   );
 }

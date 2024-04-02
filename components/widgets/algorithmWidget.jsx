@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 "use client";
 
 import { RadicalIcon } from "lucide-react";
@@ -13,7 +14,14 @@ export function AlgorithmWidget({ className }) {
 
   return (
     <>
+      <label
+        className="sr-only"
+        htmlFor="algorithm"
+      >
+        Choose an algorithm to calculate the delta E
+      </label>
       <DropdownComponent
+        id="algorithm"
         className={cn("md:hidden", className)}
         variants={algorithmVariants}
         value={value}
@@ -22,8 +30,8 @@ export function AlgorithmWidget({ className }) {
         {icon}
         {value}
       </DropdownComponent>
-
       <ToggleComponent
+        id="algorithm"
         className={cn("max-md:hidden", className)}
         variants={algorithmVariants}
         value={value}

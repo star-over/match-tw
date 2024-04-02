@@ -49,6 +49,7 @@ export function InputColorText() {
           name="textColor"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          onFocus={(e) => e.target.select()}
           type="text"
           size="5"
           autoComplete="off"

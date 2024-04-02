@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 "use client";
 
 import { LayersIcon } from "lucide-react";
@@ -13,7 +14,14 @@ export function SpotCountWidget({ className }) {
 
   return (
     <>
+      <label
+        className="sr-only"
+        htmlFor="colorSpots"
+      >
+        Select number of suggested colors
+      </label>
       <DropdownComponent
+        id="colorSpots"
         className={cn("sm:hidden", className)}
         variants={spotCountsVariants}
         value={value}
@@ -24,6 +32,7 @@ export function SpotCountWidget({ className }) {
       </DropdownComponent>
 
       <ToggleComponent
+        id="colorSpots"
         className={cn("max-sm:hidden", className)}
         variants={spotCountsVariants}
         value={value}

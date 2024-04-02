@@ -7,7 +7,7 @@ import {
 import { cn } from "@/lib/utils";
 
 export function ToggleComponent({
-  children, className, variants, value, setValue, tootip,
+  children, className, variants, value, setValue, tootip, id
 }) {
   return (
     <div className={cn(
@@ -28,6 +28,7 @@ export function ToggleComponent({
       </TooltipProvider>
 
       <ToggleGroup
+        id={id}
         type="single"
         value={value}
         onValueChange={setValue}

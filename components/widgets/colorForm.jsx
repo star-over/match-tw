@@ -27,7 +27,9 @@ export function ColorForm() {
 
   return (
     <div className="bg-gray-200 mx-auto max-w-xl min-w-min mt-4 p-4 rounded-lg shadow-lg">
-      <h3 className="text-xl mb-2 text-gray-600">Find closest color</h3>
+      <h2 className="text-xl mb-2 text-gray-600">
+        Find closest color
+      </h2>
       <p className="m-2 text-gray-600 text-sm text-balance">
         The color can be specified as a word such as&nbsp;
         {sample1}
