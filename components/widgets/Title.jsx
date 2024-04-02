@@ -13,27 +13,31 @@ export function Title() {
         quality={75}
         placeholder="empty"
       />
-
       <h2
         className="text px-4 mx-auto max-w-4xl text-center mt-4 text-balance"
       >
-        Tailwind Colour Matching is a web-based tool
-        {" "}
-        that can help you find the closest color from the&nbsp;
+        {"Tailwind Colour Matching is a web-based tool "}
+        {"that can help you find the closest color from the "}
         <Link
           className="underline"
           href="https://tailwindcss.com/docs/customizing-colors"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Tailwind palette.
-          {" "}
+          {"Tailwind palette. "}
         </Link>
-        You can use different algorithms to find the nearest color,
-        {" "}
-        and although they may give different results.
-        {" "}
-        The best way to determine the closest color is to trust your eyes.
+        {"You can use different "}
+        <Link
+          className="underline"
+          href="https://wikipedia.org/wiki/Color_difference"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          algorithms
+        </Link>
+        {" to find the nearest color, "}
+        {"and although they may give different results. "}
+        {"The best way to determine the closest color is to trust your eyes. "}
       </h2>
     </div>
   );

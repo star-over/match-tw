@@ -5,7 +5,7 @@ import { ColorForm } from "@/components/widgets/colorForm";
 import { getServerSearchParamsState } from "@/lib/searchParamsState";
 
 // ---------  next js config
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Find a closest tailwind color",

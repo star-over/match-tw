@@ -22,20 +22,19 @@ export function InputColorText() {
     setIsValid(validateColor(value));
   }, [value]);
 
-  useEffect(() => {
-    if (isValid) {
-      setTargetTextColor(String(value)
-        .toLowerCase()
-        .trim()
-        // for fix the hsl gray color problem
-        .replaceAll("none", "0"));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isValid]);
-
   return (
     <form
       className="flex flex-col"
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (isValid) {
+          setTargetTextColor(String(value)
+            .toLowerCase()
+            .trim()
+            // for fix the hsl gray color problem
+            .replaceAll("none", "0"));
+        }
+      }}
     >
       <div className={cn(
         "mt-2 flex items-center rounded-lg",
@@ -43,13 +42,11 @@ export function InputColorText() {
         { "focus-within:border-red-500": !isValid },
       )}
       >
-        {/* todo: make it with spinner */}
         <InputIcon {...{ isValid }} />
         <Input
           required
           id="textColor"
           name="textColor"
-          // defaultValue={targetTextColor}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           type="text"
@@ -62,7 +59,12 @@ export function InputColorText() {
           aria-label="Search"
           placeholder="CSS4 color..."
         />
-        <Button className="m-0.5" size="sm" type="submit">
+        <Button
+          className="m-0.5"
+          type="submit"
+          disabled={!isValid}
+          size="sm"
+        >
           Go!
           {" "}
           <KbdEnter />
