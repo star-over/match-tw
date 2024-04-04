@@ -22,22 +22,27 @@ export function InputColorText() {
     setIsValid(validateColor(value));
   }, [value]);
 
+  function submitHandle(e) {
+    e.preventDefault();
+    if (isValid) {
+      setTargetTextColor(String(value)
+        .toLowerCase()
+        .trim()
+        // for fix the hsl gray color problem
+        .replaceAll("none", "0"));
+    }
+  }
+
   return (
     <form
       className="flex flex-col"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (isValid) {
-          setTargetTextColor(String(value)
-            .toLowerCase()
-            .trim()
-            // for fix the hsl gray color problem
-            .replaceAll("none", "0"));
-        }
-      }}
+      onSubmit={submitHandle}
     >
+      <label className="text-xl mt-2 text-gray-600" htmlFor="textColor">
+        Find closest color for:
+      </label>
       <div className={cn(
-        "mt-2 flex items-center rounded-lg",
+        "flex items-center rounded-lg",
         " border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500",
         { "focus-within:border-red-500": !isValid },
       )}

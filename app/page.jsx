@@ -8,8 +8,8 @@ import { getServerSearchParamsState } from "@/lib/searchParamsState";
 // export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Find a closest tailwind color",
-  description: "Closest color to tailwind CSS palette",
+  title: "Find the nearest Tailwind color | Tailwind nearest color | Tailwind colors matching",
+  description: "Find the nearest color from Tailwind colors palette",
   verification: {
     google: "-sOdF1gPYCr2Bp9yRF2mh-XlhKi7-n0V8h_OeHR8810",
     yandex: "efb6a2518b4b8f75",

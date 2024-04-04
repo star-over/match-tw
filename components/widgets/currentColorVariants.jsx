@@ -20,7 +20,9 @@ export async function CurrentColorVariants({ textColors }) {
     <div className="text-center mt-2 px-4 sm:text-sm">
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
-          <AccordionTrigger>Current color variants</AccordionTrigger>
+          <AccordionTrigger className="justify-center gap-2">
+            Current color variants
+          </AccordionTrigger>
           <AccordionContent>
             {currentColorVariants}
           </AccordionContent>
