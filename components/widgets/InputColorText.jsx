@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 "use client";
 
 import { useEffect, useState } from "react";
