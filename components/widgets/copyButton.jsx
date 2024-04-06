@@ -24,7 +24,7 @@ export function CopyButton({ text }) {
 
   return (
     <Button
-      className="flex items-center group ml-6 text-lg font-mono hover:scale-105"
+      className="group ml-6 flex items-center font-mono text-lg hover:scale-105"
       variant="ghost"
       size="xs"
       data-value={text}
@@ -33,7 +33,7 @@ export function CopyButton({ text }) {
       {text}
       &nbsp;
       <CopyIcon
-        className="size-4 invisible group-hover:visible"
+        className="invisible size-4 group-hover:visible"
         data-value={text}
       />
     </Button>

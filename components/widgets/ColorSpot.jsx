@@ -9,9 +9,7 @@ export function ColorSpot({ colorName, colorHex, dE }) {
   return (
     <li
       className={cn(
-        "text-md text-center rounded-xl h-32",
-        "flex flex-col justify-center items-center transition-all",
-        "delay-100 duration-300 outline-1 -outline-offset-8",
+        "flex h-32 flex-col items-center justify-center rounded-xl text-center outline-1 -outline-offset-8 transition-all delay-100 duration-300",
         { "outline": isNeedBorder },
       )}
       style={getContrastStyle(colorHex)}

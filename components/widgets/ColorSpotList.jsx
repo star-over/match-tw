@@ -10,12 +10,11 @@ export default async function ColorSpotList({ targetTextColor, algorithm, spotCo
 
   return (
     <div
-      className="min-w-full mt-2 lg:mt-8 transition-all duration-300
-      rounded-lg sm:p-2 md:p-4 lg:p-10 shadow-lg"
+      className="mt-2 min-w-full rounded-lg shadow-lg transition-all duration-300 sm:p-2 md:p-4 lg:mt-8 lg:p-10"
       // todo: add fallback here, if color is incorrect
       style={getContrastStyle(textColors.at(0))}
     >
-      <div className="mx-auto max-w-xl min-w-min col-span-full">
+      <div className="col-span-full mx-auto min-w-min max-w-xl">
         <CurrentColorVariants {...{ textColors }} />
       </div>
 

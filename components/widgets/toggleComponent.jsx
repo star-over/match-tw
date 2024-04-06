@@ -7,7 +7,7 @@ import {
 import { cn } from "@/lib/utils";
 
 export function ToggleComponent({
-  children, className, variants, value, setValue, tootip, id
+  children, className, variants, value, setValue, tootip, id,
 }) {
   return (
     <div className={cn(

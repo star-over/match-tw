@@ -38,7 +38,7 @@ export function Title() {
         placeholder="empty"
       />
       <div
-        className="text px-4 mx-auto max-w-xl mt-4 text-balance"
+        className="mx-auto mt-4 max-w-xl text-balance px-4"
       >
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">

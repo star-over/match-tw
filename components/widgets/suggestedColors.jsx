@@ -32,7 +32,7 @@ export function SuggestedColorsSkeleton({ spotCount }) {
       {skeletons.map((value) => (
         <Skeleton
           key={value}
-          className="rounded-xl h-32 min-w-32 flex items-center justify-center"
+          className="flex h-32 min-w-32 items-center justify-center rounded-xl"
         >
           <div className="space-y-4">
             <Skeleton className="h-3 w-20 bg-gray-400" />

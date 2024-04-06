@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -38,12 +40,11 @@ export function InputColorText() {
       className="flex flex-col"
       onSubmit={submitHandle}
     >
-      <label className="text-xl mt-2 text-gray-600" htmlFor="textColor">
+      <label className="mt-2 text-xl text-gray-600" htmlFor="textColor">
         Find closest color for:
       </label>
       <div className={cn(
-        "flex items-center rounded-lg",
-        " border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500",
+        "flex items-center rounded-lg border-2 bg-slate-100 border-slate-200 focus-within:border-slate-500",
         { "focus-within:border-red-500": !isValid },
       )}
       >

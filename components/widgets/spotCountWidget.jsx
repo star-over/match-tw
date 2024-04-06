@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
 "use client";
 
 import { LayersIcon } from "lucide-react";
@@ -10,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export function SpotCountWidget({ className }) {
   const [value, setValue] = useSearchParamsState("spotCount");
-  const icon = <LayersIcon className="size-5 text-gray-400 m-1.5" aria-hidden="true" />;
+  const icon = <LayersIcon className="m-1.5 size-5 text-gray-400" aria-hidden="true" />;
 
   return (
     <>

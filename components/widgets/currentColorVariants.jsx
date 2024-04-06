@@ -7,6 +7,7 @@ import { getContrastStyle } from "@/lib/colorUtil";
 
 export async function CurrentColorVariants({ textColors }) {
   const currentColorVariants = textColors.map((textColor, i) => (
+    // eslint-disable-next-line react/no-array-index-key
     <React.Fragment key={i}>
       <Badge
         style={getContrastStyle(textColor)}
@@ -17,7 +18,7 @@ export async function CurrentColorVariants({ textColors }) {
   ));
 
   return (
-    <div className="text-center mt-2 px-4 sm:text-sm">
+    <div className="mt-2 px-4 text-center sm:text-sm">
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
           <AccordionTrigger className="justify-center gap-2">

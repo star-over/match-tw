@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
 "use client";
 
 import { RadicalIcon } from "lucide-react";
@@ -10,7 +11,7 @@ import { ToggleComponent } from "./toggleComponent";
 
 export function AlgorithmWidget({ className }) {
   const [value, setValue] = useSearchParamsState("algorithm");
-  const icon = <RadicalIcon className="size-5 text-gray-400 m-1.5" aria-hidden="true" />;
+  const icon = <RadicalIcon className="m-1.5 size-5 text-gray-400" aria-hidden="true" />;
 
   return (
     <>
