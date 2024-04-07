@@ -1,5 +1,5 @@
-import { CopyButton } from "@/components/widgets/copyButton";
-import { getContrastStyle } from "@/lib/colorUtil";
+import { CopyButton } from "@/components/widgets/copy-button";
+import { getContrastStyle } from "@/lib/color-util";
 import { cn } from "@/lib/utils";
 
 export function ColorSpot({ colorName, colorHex, dE }) {

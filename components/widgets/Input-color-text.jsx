@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { KbdEnter } from "@/components/ui/kbd";
 import { InputIcon } from "@/components/widgets/inputIcon";
-import { validateColor } from "@/lib/colorUtil";
-import { useSearchParamsState } from "@/lib/searchParamsState";
+import { validateColor } from "@/lib/color-util";
+import { useSearchParamsState } from "@/lib/search-params-state";
 import { cn } from "@/lib/utils";
 
 export function InputColorText() {

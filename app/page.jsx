@@ -1,8 +1,8 @@
-import { Breakpoints } from "@/components/widgets/Breakpoints";
-import ColorSpotList from "@/components/widgets/ColorSpotList";
-import { Title } from "@/components/widgets/Title";
-import { ColorForm } from "@/components/widgets/colorForm";
-import { getServerSearchParamsState } from "@/lib/searchParamsState";
+import { Breakpoints } from "@/components/widgets/breakpoints";
+import ColorSpotList from "@/components/widgets/color-spot-list";
+import { Title } from "@/components/widgets/title";
+import { ColorForm } from "@/components/widgets/color-form";
+import { getServerSearchParamsState } from "@/lib/search-params-state";
 
 // ---------  next js config
 // export const dynamic = "force-dynamic";

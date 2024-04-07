@@ -3,10 +3,10 @@
 "use client";
 
 import { LayersIcon } from "lucide-react";
-import { spotCountsVariants } from "@/lib/colorUtil";
-import { useSearchParamsState } from "@/lib/searchParamsState";
-import { ToggleComponent } from "@/components/widgets/toggleComponent";
-import { DropdownComponent } from "@/components/widgets/dropdownComponent";
+import { spotCountsVariants } from "@/lib/color-util";
+import { useSearchParamsState } from "@/lib/search-params-state";
+import { ToggleComponent } from "@/components/widgets/toggle-component";
+import { DropdownComponent } from "@/components/widgets/dropdown-component";
 import { cn } from "@/lib/utils";
 
 export function SpotCountWidget({ className }) {

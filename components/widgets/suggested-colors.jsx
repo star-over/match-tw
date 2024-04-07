@@ -1,5 +1,5 @@
-import { ColorSpot } from "@/components/widgets/ColorSpot";
-import { getMatchColors } from "@/lib/colorUtil";
+import { ColorSpot } from "@/components/widgets/color-spot";
+import { getMatchColors } from "@/lib/color-util";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const commonStyle = "grid grid-cols-1 max-w-sm mt-4 px-4 pb-24 sm:max-w-3xl mx-auto gap-8 sm:grid-cols-3 sm:gap-x-4 md:gap-x-8 transition-all duration-300";

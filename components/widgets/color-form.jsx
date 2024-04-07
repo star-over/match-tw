@@ -1,6 +1,6 @@
-import { InputColorText } from "./InputColorText";
-import { AlgorithmWidget } from "./algorithmWidget";
-import { SpotCountWidget } from "./spotCountWidget";
+import { InputColorText } from "./Input-color-text";
+import { AlgorithmWidget } from "./algorithm-widget";
+import { SpotCountWidget } from "./spot-count-widget";
 
 export function ColorForm() {
   return (

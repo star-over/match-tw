@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { getColorTexts, getContrastStyle, textToColor } from "@/lib/colorUtil";
-import { SuggestedColors, SuggestedColorsSkeleton } from "@/components/widgets/suggestedColors";
-import { CurrentColorVariants } from "@/components/widgets/currentColorVariants";
+import { getColorTexts, getContrastStyle, textToColor } from "@/lib/color-util";
+import { SuggestedColors, SuggestedColorsSkeleton } from "@/components/widgets/suggested-colors";
+import { CurrentColorVariants } from "@/components/widgets/current-color-variants";
 
 export default async function ColorSpotList({ targetTextColor, algorithm, spotCount }) {
   // todo: validate is color correct

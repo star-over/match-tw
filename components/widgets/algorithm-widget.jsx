@@ -3,11 +3,11 @@
 "use client";
 
 import { RadicalIcon } from "lucide-react";
-import { algorithmVariants } from "@/lib/colorUtil";
-import { useSearchParamsState } from "@/lib/searchParamsState";
+import { algorithmVariants } from "@/lib/color-util";
+import { useSearchParamsState } from "@/lib/search-params-state";
 import { cn } from "@/lib/utils";
-import { DropdownComponent } from "./dropdownComponent";
-import { ToggleComponent } from "./toggleComponent";
+import { DropdownComponent } from "./dropdown-component";
+import { ToggleComponent } from "./toggle-component";
 
 export function AlgorithmWidget({ className }) {
   const [value, setValue] = useSearchParamsState("algorithm");

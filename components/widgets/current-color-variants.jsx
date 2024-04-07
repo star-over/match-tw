@@ -3,7 +3,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { getContrastStyle } from "@/lib/colorUtil";
+import { getContrastStyle } from "@/lib/color-util";
 
 export async function CurrentColorVariants({ textColors }) {
   const currentColorVariants = textColors.map((textColor, i) => (
