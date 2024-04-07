@@ -1,4 +1,4 @@
-import { InputColorText } from "@/components/widgets/input-color-text";
+import { InputColorText } from "@/components/widgets/in-put-color-text";
 import { AlgorithmWidget } from "@/components/widgets/algorithm-widget";
 import { SpotCountWidget } from "@/components/widgets/spot-count-widget";
 
