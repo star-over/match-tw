@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Breakpoints } from "@/components/widgets/breakpoints";
 import ColorSpotList from "@/components/widgets/color-spot-list";
 import { Title } from "@/components/widgets/title";
