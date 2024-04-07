@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
-import { Breakpoints } from "@/components/widgets/breakpoints";
+
 import ColorSpotList from "@/components/widgets/color-spot-list";
 import { Title } from "@/components/widgets/title";
 import { ColorForm } from "@/components/widgets/color-form";
 import { getServerSearchParamsState } from "@/lib/search-params-state";
+import { Breakpoints } from "@/components/widgets/breakpoints";
 
 // ---------  next js config
 // export const dynamic = "force-dynamic";
