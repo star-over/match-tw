@@ -62,7 +62,6 @@ module.exports = {
     "react/self-closing-comp": "warn",
     "no-multi-spaces": "warn",
     "react/jsx-one-expression-per-line": "warn",
-    "react/jsx-no-bind": "warn",
     "padded-blocks": "warn",
     "react/no-array-index-key": "warn",
     "no-tabs": "warn",
@@ -78,5 +77,6 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "no-undef": "off",
     "object-shorthand": "off",
+    "react/jsx-no-bind": "off",
   },
 };
